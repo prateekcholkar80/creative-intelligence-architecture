@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Creative Intelligence · Component Architecture v5 · Progressive Path Highlighting</title>
+<style>
+:root {
+  --ink:#172f4e;--muted:#617690;--hair:#d5dfeb;--sheet:#f5f8fc;--white:#fff;
+  --source:#607e9e;--prep:#148c70;--storage:#357fda;--campaign:#7955c5;--results:#b27c19;--services:#bd6087;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sheet);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:13px;-webkit-font-smoothing:antialiased}
+.shell{max-width:1670px;margin:auto;padding:24px 24px 32px}
+.head{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:0 3px}
+.overline{font-size:10px;font-weight:780;color:#6480a1;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:29px;letter-spacing:-.043em;line-height:1.2;font-weight:755;margin:3px 0 3px}
+.subtitle{color:var(--muted);font-size:12px}
+.rightactions{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+button{font:inherit;cursor:pointer}
+.action,.tab,.mini{border:1px solid #d2ddea;background:#fff;color:#526780;border-radius:9px;font-size:11px;padding:9px 12px;font-weight:690;transition:background .18s,border-color .18s,color .18s}
+.action:hover,.tab:hover,.mini:hover{border-color:#6c9ad0;color:#2b5483;background:#f4f8ff}
+.action:focus-visible,.tab:focus-visible,.node:focus-visible,.mini:focus-visible{outline:3px solid #82b5ec;outline-offset:2px}
+.action svg{vertical-align:-2px;margin-right:3px}
+.actions{display:flex;gap:6px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:18px 0 12px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab.active{background:#e8f0fc;border-color:#80a9df;color:#214e83;box-shadow:inset 0 0 0 1px #d7e6fd}
+.instruction{font-size:11px;color:#75879e}
+.stage{background:#fbfdff;border:1px solid var(--hair);border-radius:14px;overflow-x:auto;overflow-y:hidden;box-shadow:0 14px 42px #16375e09;scrollbar-color:#bdccdf transparent}
+.canvas{width:100%;min-width:1150px;position:relative;padding:16px 17px 20px;isolation:isolate}
+.layers{display:flex;flex-direction:column;gap:63px;position:relative;z-index:auto}
+.layer{position:relative;border:1px solid var(--layer-color);border-radius:11px;background:var(--layer-wash);padding:11px 12px 13px}
+.layer-title{font-size:10px;text-transform:uppercase;letter-spacing:.065em;font-weight:750;display:flex;gap:8px;align-items:center;color:var(--layer-ink);padding:0 0 11px}
+.swatch{width:10px;height:10px;background:var(--layer-ink);border-radius:3px;display:inline-block;flex:none}
+.nodegrid{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));gap:14px}
+.node{appearance:none;min-width:0;min-height:84px;width:100%;text-align:left;display:flex;gap:12px;align-items:center;position:relative;padding:11px 13px;border:1px solid var(--layer-color);border-radius:8px;background:#fff;color:var(--layer-ink);z-index:3;box-shadow:0 2px 5px #1b3d6709;transition:opacity .2s,border-color .2s,box-shadow .2s,transform .2s;cursor:pointer}
+.node:hover{border-color:var(--layer-ink);transform:translateY(-1px)}
+.node.is-active{border-color:var(--layer-ink);box-shadow:0 0 0 2px var(--layer-glow),0 4px 15px #23426010}
+.node.is-selected{box-shadow:0 0 0 2px var(--layer-ink),0 6px 17px #23426016;background:#fff}
+.node.is-dim{opacity:.39}
+.node .id{position:absolute;top:6px;right:8px;font-size:9px;letter-spacing:.025em;color:#97a8bc;font-weight:650}
+.node .symbol{flex:none;width:32px;height:32px;border-radius:8px;background:var(--layer-wash);display:flex;align-items:center;justify-content:center;color:var(--layer-ink)}
+.node .symbol svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.node .name{font-size:12px;font-weight:730;line-height:1.3;padding-right:8px}
+.node .tech{font-size:10px;line-height:1.25;color:#7b8da6;margin-top:4px;font-weight:450}
+.wires{position:absolute;inset:0;z-index:2;width:100%;height:100%;overflow:visible;pointer-events:none}
+.edge{fill:none;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;opacity:.12;transition:opacity .16s,stroke-width .16s}
+.edge.active{opacity:.95;stroke-width:1.7}
+.edge.background{opacity:.12}
+.edge.backdrop{opacity:0;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.edge.backdrop.active{opacity:.87}
+.edge.dashed{stroke-dasharray:5 6}
+.indicator{pointer-events:none;filter:drop-shadow(0 0 2px #ffffff)}
+@media (prefers-reduced-motion:reduce){.indicator{display:none}.node,.edge{transition:none}}
+.details{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.9fr);gap:25px;margin-top:13px;background:#fff;border:1px solid var(--hair);border-radius:13px;padding:18px 20px;min-height:145px}
+.detail-tag{font-size:10px;letter-spacing:.12em;font-weight:760;color:#7b8ca6;text-transform:uppercase}
+.details h2{font-size:17px;line-height:1.3;margin:5px 0 9px;letter-spacing:-.012em}
+.details p{font-size:12px;color:#687c95;line-height:1.63;margin:0;max-width:920px}
+.detail-actions{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.mini{font-size:10px;padding:6px 9px}
+.mini.selected{background:#e8f0fc;color:#245686;border-color:#97bae6}
+.inspector{border-left:1px solid #e3e9f3;padding-left:20px;min-width:0}
+.inspector h3{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7285a0;margin:0 0 12px}
+.dep{display:grid;grid-template-columns:43px 15px minmax(0,1fr);gap:6px;align-items:center;margin:7px 0;font-size:11px;color:#61728c}
+.dep .dep-id{font-weight:750;color:#2e5988}.dep .dep-arrow{color:#8ea0b5}.dep .dep-title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.dep-label{font-size:10px;color:#8795a7;margin:-3px 0 8px 65px;line-height:1.35}
+.empty{color:#8a99ad;font-size:11px;line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:16px 23px;margin:12px 4px 0;color:#627690;font-size:10px}
+.legend i{display:inline-block;vertical-align:middle;width:18px;height:2px;margin-right:6px}
+.note{color:#667b96;font-size:10px;margin:13px 4px 0;line-height:1.5}
+.keyboard{color:#92a3b7;font-size:10px;margin-left:auto}
+@media (max-width:850px){.shell{padding:15px 10px 30px}.details{grid-template-columns:1fr;gap:16px}.inspector{border-left:0;border-top:1px solid #e3e9f3;padding:15px 0 0}.header h1,h1{font-size:24px}.keyboard{margin-left:0}}
+@media print{.shell{max-width:none}.actions,.rightactions,.instruction,.detail-actions,.keyboard{display:none!important}.stage{overflow:visible;box-shadow:none}.canvas{min-width:1150px}.edge.background{opacity:.18}.details{break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+<main class="shell">
+ <header class="head">
+   <div><div class="overline">Component architecture / v5 · Interactive design view</div><h1>Creative Intelligence</h1><div class="subtitle">Multimodal RAG + commerce analytics &nbsp; | &nbsp; Component architecture</div></div>
+   <div class="rightactions"><button class="action" id="pause" type="button" aria-pressed="false">Ⅱ Pause motion</button><button class="action" id="reset" type="button">↺ Reset view</button></div>
+ </header>
+ <div class="actions"><nav id="tabs" class="tabs" aria-label="Select architecture path">
+   <button class="tab active" data-flow="overview" type="button">Complete architecture</button>
+   <button class="tab" data-flow="ingest" type="button">01 · Preparation</button>
+   <button class="tab" data-flow="ground" type="button">02 · Grounding</button>
+   <button class="tab" data-flow="create" type="button">03 · Campaign execution</button>
+   <button class="tab" data-flow="learn" type="button">04 · Results & learning</button>
+ </nav><span class="instruction">Hover to preview · Click to pin · Trace to expand</span></div>
+ <section class="stage" aria-label="Interactive Creative Intelligence architecture">
+   <div class="canvas" id="canvas"><div class="layers" id="layers"></div><svg class="wires" id="wires" role="img" aria-label="Directional architecture connections, highlighted when selected"></svg></div>
+ </section>
+ <section class="details" aria-live="polite">
+  <div><div id="detailType" class="detail-tag">Architecture overview</div><h2 id="detailName">Select a component or a workflow</h2><p id="detailBody">All components remain visible. Connections are intentionally subdued; selecting a workflow reveals its documented directional paths, and clicking a component highlights its direct inputs and outputs. No runtime activity is implied.</p>
+  <div class="detail-actions"><button class="mini" id="trace" type="button" hidden>Trace upstream + downstream</button><button class="mini" id="clear" type="button" hidden>Clear component</button></div></div>
+  <aside class="inspector" id="inspector"><h3>How to explore</h3><p>Choose a flow above or select a component on the diagram. Active arrows point toward the documented destination. Dashed connectors represent the orchestration, correction and feedback paths shown in v5.</p></aside>
+ </section>
+ <div class="legend"><span><i style="background:#148c70"></i>Preparation / original assets</span><span><i style="background:#357fda"></i>Knowledge evidence</span><span><i style="background:#b27c19"></i>Commerce / outcomes</span><span><i style="background:#7955c5"></i>Campaign execution</span><span>Dashed = orchestrate, bounded correction or feedback</span><span class="keyboard">Esc: clear selection · 1–4: focus flows</span></div>
+ <p class="note">Architecture design, not observed production telemetry. BigQuery remains the business-record and vector authority; GCS stores bytes. Commerce metrics retain their SKU/store/market scope, time window, definition and freshness. Commercial outcomes do not substantiate product efficacy claims. The connectors shown are limited to the supplied v5 diagram.</p>
+</main>
+<script>
+'use strict';
+// Source-of-truth labels, descriptions and links: user-supplied v5 diagram and component reference.
+const LAYERS = [
+ {name:'01 · Data sources', color:'#708aa7',ink:'#506d8d',wash:'#eef3f9',glow:'#d8e2ef',cols:4, items:[
+ ['S1','Product + brand','Catalog / documents','doc','Product metadata, ingredients, usage instructions, brand rules and supporting documents.'],
+ ['S2','Visual assets','Products / creatives','image','Original pack shots, approved derived imagery and historical campaign creatives.'],
+ ['S3','Commerce','Orders / stores / stock','store','Orders, order lines, refunds, discounts, product costs, store mappings and inventory.'],
+ ['S4','Performance','Spend / conversions','bars','Ad spend, audience and channel performance, attribution and experiment results.']]},
+ {name:'02 · Background preparation',color:'#45af93',ink:'#13876b',wash:'#e8f7f1',glow:'#c8e9de',cols:5,items:[
+ ['P1','Intake','Cloud Run','play','Protected source intake validates file types and scope, maps SKU identities, deduplicates and stores immutable originals.'],
+ ['P2','Orchestrate','Workflows / Scheduler','network','Workflows coordinates durable preparation jobs; Cloud Scheduler starts scheduled sync. Stable job identities and recovery prevent blind repeat execution.'],
+ ['P3','Extract + classify','Cloud Run Jobs','file','Workers extract and segment text, classify images and prepare authorized derivatives while retaining provenance.'],
+ ['P4','Embed','Vertex AI','spark','Versioned text and multimodal embeddings retain source, task, dimension, provider and usage records.'],
+ ['P5','Transform metrics','BigQuery SQL','bars','Transforms commerce and marketing data into reconciled dimensions, facts and governed metric views.']]},
+ {name:'03 · Authoritative storage',color:'#75a8f1',ink:'#397cd1',wash:'#eaf2ff',glow:'#d7e6fd',cols:3,items:[
+ ['D1','Source + artifact bytes','Cloud Storage','storage','Stores original files, generation-pinned product images, derived assets and generated campaign artifacts.'],
+ ['D2','Knowledge + vectors','BigQuery','search','Holds product facts, text chunks, asset metadata, embedding profiles, source bindings, scoped claims and review records.'],
+ ['D3','Commerce marts','BigQuery','chart','Curated product/store/campaign dimensions and sales, returns, stock and spend facts support revenue, margin, CVR and ROAS with explicit definitions.']]},
+ {name:'04 · Campaign execution',color:'#b496ec',ink:'#7b54c7',wash:'#f3edfd',glow:'#e8dbff',cols:6,items:[
+ ['C1','Campaign studio','Chat / IAP','chat','Marketers select a product and provide the brief, market, audience and formats; authenticated users can clarify and reconnect to saved work.'],
+ ['C2','Coordinate','Cloud Run / Workflows','play','Checks scope, readiness and execution limits, then coordinates durable generation stages and recovery.'],
+ ['C3','Ground','RAG + governed SQL','search','Retrieves eligible lexical/vector candidates, reranks them and runs typed analytics queries. Binds selected evidence, metrics and query lineage to the brief.'],
+ ['C4','Plan','Vertex AI Gemini','spark','Produces structured concepts, copy and layout using exact evidence, source images and versioned prompts.'],
+ ['C5','Render','Vertex AI + compositor','image','Generates visual scenes, preserves the actual product asset and composes approved copy and format-specific layouts.'],
+ ['C6','Validate + release','Checks / human review','shield','Checks product fidelity, claims, safety, brand and format; supports bounded correction and scoped approval before delivery.']]},
+ {name:'05 · Results and learning',color:'#e7bc5d',ink:'#ab7416',wash:'#fff5de',glow:'#f8e4b9',cols:3,items:[
+ ['O1','Execution evidence','BigQuery / GCS','file','Records exact inputs, attempts, provider responses, usage, original job IDs, artifact generations and measured scores.'],
+ ['O2','Campaign package','Preview / approved files','download','Delivers campaign concepts, copy, banners, format variants, source references, analytics context and validation records through protected access.'],
+ ['O3','Outcome feedback','Review / campaign results','refresh','Links human feedback and measured campaign results to campaign, creative and SKU IDs. Feeds governed analytics and evaluation of future changes.']]},
+ {name:'06 · Platform services · cross-cutting',color:'#e69ab7',ink:'#b65b80',wash:'#fcedf3',glow:'#f6d7e4',cols:6,items:[
+ ['X1','Identity','IAM / IAP','shield','Identity, workspace and resource authorization; narrow service-account permissions and data access boundaries.'],
+ ['X2','Secrets','Secret Manager','lock','Protected configuration and secrets, with versioned prompt/model/policy bindings.'],
+ ['X3','CI/CD','Build / Registry','cube','Focused verification, controlled source packaging, immutable images and Cloud Run deployment/rollback.'],
+ ['X4','Evaluation','Quality benchmarks','check','Independent retrieval and artifact evaluation, adversarial cases, human review and version-specific quality gates.'],
+ ['X5','Observability','Logging / Monitoring','bars','Correlated stage progress, latency, failures, safe diagnostics, readiness and freshness alerts.'],
+ ['X6','Cost + recovery','Budgets / durable jobs','refresh','Tracks provider/query/compute usage, bounds resource use and preserves uncertain operation recovery.']]} 
+];
+// Exactly the 24 direct connectors represented by the supplied architecture v5 image.
+// All edge IDs below have one-to-one counterparts on that image. The diagram's
+// dashed lines are P2>P5, C6>C4 and O3>D3.
+const LINKS = [
+ ['S1','P1','ingest'],['S2','P1','ingest'],['S3','P5','ground'],['S4','P5','ground'],
+ ['P1','P2','ingest'],['P2','P3','ingest'],['P3','P4','ingest'],['P2','P5','ground','dash'],
+ ['P1','D1','ingest'],['P4','D2','ingest'],['P5','D3','ground'],
+ ['D1','C5','create','','Original product images'],['D2','C3','ground','','Evidence'],['D3','C3','ground','','Revenue / margin / store metrics'],
+ ['C1','C2','create'],['C2','C3','create'],['C3','C4','create'],['C4','C5','create'],['C5','C6','create'],
+ ['C2','O1','learn'],['C6','O2','learn','','Approved artifacts'],['O2','O3','learn'],['C6','C4','learn','dash','Bounded correction'],['O3','D3','learn','dash','Outcome feedback']
+].map(([a,b,group,dash,label],i)=>({a,b,group,dash:dash==='dash',label:label||'',id:'e'+i}));
+const FLOWS = {
+ overview:{name:'Select a component or a workflow',description:'All components remain visible. Connections are intentionally subdued; selecting a workflow reveals its documented directional paths, and clicking a component highlights its direct inputs and outputs. No runtime activity is implied.'},
+ ingest:{name:'Background preparation and authoritative product knowledge',description:'Product and visual sources are ingested, orchestrated, extracted, classified and embedded. Source bytes are stored in GCS; knowledge and vectors are held in BigQuery.'},
+ ground:{name:'Governed evidence and commerce inputs',description:'Commerce and performance data become governed marts. D2 supplies retrieved evidence, while D3 supplies scoped commerce metrics to C3. P2 also orchestrates scheduled metric preparation.'},
+ create:{name:'Campaign execution and product-faithful rendering',description:'The marketer brief moves through coordination, grounding, planning, rendering and validation. Original product images from D1 feed C5; campaign delivery occurs only after validation and scoped approval.'},
+ learn:{name:'Results, bounded correction and learning',description:'Execution evidence is recorded; approved campaign packages feed outcome reviews and campaign results. Bounded correction returns from C6 to C4, while outcome feedback returns to D3.'}
+};
+const EDGE_COLORS={ingest:'#168c70',ground:'#b8831c',create:'#7a55cc',learn:'#af7a1a'};
+const COLOR_OVERRIDE={'D2>C3':'#367fd5','D3>C3':'#bc861e','D1>C5':'#168c70','C2>C3':'#7955c5'};
+const SVG_ICONS={
+ doc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h6"/>',
+ image:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="m4 17 5-5 3 3 4-5 4 6"/>',
+ store:'<path d="M3 10 5 4h14l2 6M3 10h18M5 10v11h14V10M10 21v-7h4v7"/>',
+ bars:'<rect x="4" y="12" width="3" height="9" rx=".8"/><rect x="10" y="7" width="3" height="14" rx=".8"/><rect x="16" y="3" width="3" height="18" rx=".8"/>',
+ play:'<path d="m6 3 13 9-13 9V3Z"/>',network:'<rect x="3" y="4" width="7" height="5" rx="1"/><rect x="14" y="4" width="7" height="5" rx="1"/><rect x="8.5" y="15" width="7" height="5" rx="1"/><path d="M10 6.5h4M6.5 9v4h5.5v2M17.5 9v4h-5.5"/>',
+ file:'<path d="M6 3h9l4 4v14H6zM15 3v5h4M9 12h7M9 16h7"/>',
+ spark:'<path d="m12 2 1.8 7.4L21 12l-7.2 2.6L12 22l-1.8-7.4L3 12l7.2-2.6z"/>',
+ storage:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01M11 7.5h6M11 16.5h6"/>',
+ search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 6 6"/>',
+ chart:'<circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5M7.5 12V8M10.5 12V5.5M13.5 12V10"/>',
+ chat:'<path d="M4 4h16v13H9l-5 4V4zM7 9h10M7 13h7"/>',
+ shield:'<path d="m12 2 9 4v6c0 5.2-3.3 8.5-9 10-5.7-1.5-9-4.8-9-10V6zM8 12l3 3 5-6"/>',
+ download:'<path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/>',
+ refresh:'<path d="M20 10a8 8 0 0 0-14-4L4 8M4 3v5h5M4 14a8 8 0 0 0 14 4l2-2m0 5v-5h-5"/>',
+ lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+ cube:'<path d="m12 2 9 5-9 5-9-5zM3 7v10l9 5 9-5V7M12 12v10"/>',
+ check:'<path d="m4 12 5 5L20 6"/>'
+};
+const nodeLookup=new Map(LAYERS.flatMap(l=>l.items.map(n=>[n[0],{id:n[0],name:n[1],tech:n[2],icon:n[3],desc:n[4]}])));
+const canvas=document.querySelector('#canvas');const svg=document.querySelector('#wires');const layers=document.querySelector('#layers');
+const XMLNS='http://www.w3.org/2000/svg';
+const state={flow:'overview',selected:null,hover:null,trace:false,playing:true};
+function makeSVG(name,attrs={}){const n=document.createElementNS(XMLNS,name);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;}
+function renderNodes(){for(const layer of LAYERS){let el=document.createElement('section');el.className='layer';el.style.setProperty('--layer-color',layer.color);el.style.setProperty('--layer-ink',layer.ink);el.style.setProperty('--layer-wash',layer.wash);el.style.setProperty('--layer-glow',layer.glow);const head=document.createElement('div');head.className='layer-title';head.innerHTML='<span class="swatch"></span>'+layer.name;el.appendChild(head);const g=document.createElement('div');g.className='nodegrid';g.style.setProperty('--columns',layer.cols);
+for(const n of layer.items){const cell=document.createElement('button');cell.type='button';cell.className='node';cell.dataset.node=n[0];cell.setAttribute('aria-label',n[0]+' '+n[1]+': '+n[2]);cell.innerHTML='<div class="symbol"><svg viewBox="0 0 24 24" aria-hidden="true">'+SVG_ICONS[n[3]]+'</svg></div><div><div class="name">'+n[1]+'</div><div class="tech">'+n[2]+'</div></div><span class="id">'+n[0]+'</span>';
+ cell.addEventListener('pointerenter',()=>{if(!state.selected){state.hover=n[0];update()}});cell.addEventListener('pointerleave',()=>{if(!state.selected){state.hover=null;update()}});cell.addEventListener('focus',()=>{if(!state.selected){state.hover=n[0];update()}});cell.addEventListener('blur',()=>{if(!state.selected){state.hover=null;update()}});cell.addEventListener('click',()=>{if(state.selected===n[0]){state.selected=null;state.trace=false}else{state.selected=n[0];state.trace=false}state.hover=null;update()});g.appendChild(cell)}el.appendChild(g);layers.appendChild(el)} }
+function coord(id){const n=document.querySelector('[data-node="'+id+'"]');const r=n.getBoundingClientRect(),c=canvas.getBoundingClientRect();return{x:r.left-c.left,y:r.top-c.top,w:r.width,h:r.height,mx:r.left-c.left+r.width/2,my:r.top-c.top+r.height/2};}
+function point(r,side,fraction=.5){if(side==='top')return{x:r.x+r.w*fraction,y:r.y};if(side==='bottom')return{x:r.x+r.w*fraction,y:r.y+r.h};if(side==='left')return{x:r.x,y:r.y+r.h*fraction};return{x:r.x+r.w,y:r.y+r.h*fraction}}
+function rounding(points,r=6){ // Smooth right-angled path with rounded corners.
+ if(points.length<2)return'';let s=`M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
+ for(let i=1;i<points.length-1;i++){const a=points[i-1],p=points[i],b=points[i+1];const len1=Math.hypot(p.x-a.x,p.y-a.y),len2=Math.hypot(b.x-p.x,b.y-p.y);const d=Math.min(r,len1/2,len2/2);const v1={x:(p.x-a.x)/(len1||1),y:(p.y-a.y)/(len1||1)},v2={x:(b.x-p.x)/(len2||1),y:(b.y-p.y)/(len2||1)};s+=` L ${(p.x-v1.x*d).toFixed(1)} ${(p.y-v1.y*d).toFixed(1)} Q ${p.x.toFixed(1)} ${p.y.toFixed(1)} ${(p.x+v2.x*d).toFixed(1)} ${(p.y+v2.y*d).toFixed(1)}`}
+ const end=points[points.length-1];return s+` L ${end.x.toFixed(1)} ${end.y.toFixed(1)}`}
+function p(a,b){return{x:a,y:b}}
+const EDGEPOS={
+ 'S1>P1':{from:['bottom',.50],to:['top',.30],slot:-14},
+ 'S2>P1':{from:['bottom',.50],to:['top',.70],slot:12},
+ 'S3>P5':{from:['bottom',.5],to:['top',.31],slot:-16},
+ 'S4>P5':{from:['bottom',.5],to:['top',.72],slot:11},
+ 'P1>D1':{from:['bottom',.5],to:['top',.45],slot:-8},
+ 'P4>D2':{from:['bottom',.5],to:['top',.5],slot:4},
+ 'P5>D3':{from:['bottom',.5],to:['top',.5],slot:12},
+ 'D1>C5':{from:['bottom',.54],to:['top',.50],slot:-21},
+ 'D2>C3':{from:['bottom',.50],to:['top',.29],slot:1},
+ 'D3>C3':{from:['bottom',.50],to:['top',.71],slot:22},
+ 'C2>O1':{from:['bottom',.50],to:['top',.50],slot:-14},
+ 'C6>O2':{from:['bottom',.70],to:['top',.54],slot:16}
+};
+function route(e){const A=coord(e.a),B=coord(e.b),key=e.a+'>'+e.b;let pts;
+ if(key==='P2>P5'){const s=point(A,'top',.45),t=point(B,'top',.62);const y=A.y-29;pts=[s,p(s.x,y),p(t.x,y),t];}
+ else if(key==='C6>C4'){const s=point(A,'bottom',.28),t=point(B,'bottom',.72),y=A.y+A.h+28;pts=[s,p(s.x,y),p(t.x,y),t];}
+ else if(key==='O3>D3'){const s=point(A,'right',.45),t=point(B,'right',.52),x=canvas.clientWidth-9;pts=[s,p(x,s.y),p(x,t.y),t];}
+ else if(Math.abs(A.my-B.my)<24){const s=point(A,'right'),t=point(B,'left');pts=[s,t];}
+ else{const x=EDGEPOS[key]||{},s=point(A,...(x.from||['bottom',.5])),t=point(B,...(x.to||['top',.5]));const laneGap=t.y-s.y,mid=s.y+laneGap/2+ (x.slot||0);const y=Math.max(s.y+10,Math.min(t.y-10,mid));pts=[s,p(s.x,y),p(t.x,y),t];}
+ return rounding(pts);
+}
+function buildSvg(){svg.replaceChildren();const width=canvas.clientWidth,height=canvas.scrollHeight;svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.setAttribute('width',width);svg.setAttribute('height',height);
+ const defs=makeSVG('defs');for(const [type,color]of Object.entries({...EDGE_COLORS,knowledge:'#367fd5'})){const marker=makeSVG('marker',{id:'arrow-'+type,viewBox:'0 0 8 8',refX:'6',refY:'4',markerWidth:'5.1',markerHeight:'5.1',orient:'auto-start-reverse',markerUnits:'userSpaceOnUse'});const tri=makeSVG('path',{d:'M 1 1 L 7 4 L 1 7',fill:'none',stroke:color,'stroke-width':'1.3','stroke-linecap':'round','stroke-linejoin':'round'});marker.appendChild(tri);defs.appendChild(marker)}svg.appendChild(defs);
+ for(const e of LINKS){const color=COLOR_OVERRIDE[e.a+'>'+e.b]||EDGE_COLORS[e.group],shape=route(e);const back=makeSVG('path',{d:shape,class:'edge backdrop','data-edge':e.id});svg.appendChild(back);const path=makeSVG('path',{d:shape,class:'edge'+(e.dash?' dashed':'')+' background','data-edge':e.id,stroke:color,'marker-end':'url(#arrow-'+(e.a==='D2'&&e.b==='C3'?'knowledge':e.group)+')'});svg.appendChild(path);
+ // Indicator only made visible for selected paths; invisible otherwise.
+ const travelSeconds=Math.max(1.9,Math.min(6.5,path.getTotalLength()/155));const indicator=makeSVG('circle',{r:'2.55',fill:color,class:'indicator','data-traveler':e.id});const motion=makeSVG('animateMotion',{dur:travelSeconds.toFixed(2)+'s',begin:(-(parseInt(e.id.slice(1),10)%5)*.24)+'s',repeatCount:'indefinite',path:shape,rotate:'auto'});indicator.appendChild(motion);svg.appendChild(indicator);
+ }
+ if(!state.playing&&svg.pauseAnimations)svg.pauseAnimations();
+ updateEdges();
+}
+function relatives(id){return LINKS.filter(e=>e.a===id||e.b===id)}
+function traceback(id){
+ // Two directed traversals: true upstream ancestors and downstream descendants.
+ // Excludes explicitly dashed coordination/correction/feedback loops from lineage expansion;
+ // those remain visible through direct component selection or their workflow tabs.
+ const traced=new Set();
+ function travel(dir){const seen=new Set([id]),queue=[id];while(queue.length){const current=queue.shift();
+  for(const e of LINKS){if(e.dash)continue;
+   const match=dir==='up'?e.b===current:e.a===current;if(!match)continue;
+   traced.add(e.id);const other=dir==='up'?e.a:e.b;
+   if(!seen.has(other)){seen.add(other);queue.push(other)}
+  }
+ }}
+ travel('up');travel('down');return traced;
+}
+function activeSet(){if(state.selected){return state.trace?traceback(state.selected):new Set(relatives(state.selected).map(e=>e.id))}if(state.hover){return new Set(relatives(state.hover).map(e=>e.id))}if(state.flow!=='overview'){return new Set(LINKS.filter(e=>e.group===state.flow || (state.flow==='create'&&e.a==='C6'&&e.b==='O2')).map(e=>e.id))}return new Set()}
+function updateEdges(){const active=activeSet();const hasFocus=!!active.size;for(const e of LINKS){const on=active.has(e.id);const line=svg.querySelector('path.edge:not(.backdrop)[data-edge="'+e.id+'"]');const back=svg.querySelector('path.backdrop[data-edge="'+e.id+'"]');const dot=svg.querySelector('[data-traveler="'+e.id+'"]');if(!line||!back||!dot)continue;line.classList.toggle('active',on);line.classList.toggle('background',!on);back.classList.toggle('active',on);line.style.opacity=on?'0.98':hasFocus?'.06':'.12';line.style.strokeWidth=on?'1.7':'1.15';line.style.markerEnd=on?line.getAttribute('marker-end'):'none';back.style.opacity=on?'.89':'0';dot.style.display=on&&state.playing?'':'none';}
+ if(state.playing&&svg.unpauseAnimations)svg.unpauseAnimations();else if(!state.playing&&svg.pauseAnimations)svg.pauseAnimations();
+ const seen=new Set();for(const e of LINKS){if(active.has(e.id)){seen.add(e.a);seen.add(e.b)}};document.querySelectorAll('[data-node]').forEach(el=>{const id=el.dataset.node,selected=state.selected===id,hover=state.hover===id;el.classList.toggle('is-selected',selected);el.classList.toggle('is-active',!selected&&(hover||seen.has(id)));el.classList.toggle('is-dim',hasFocus&&!seen.has(id)&&!selected)});
+}
+function updateDetails(){const id=state.selected||state.hover,tt=document.querySelector('#detailType'),nn=document.querySelector('#detailName'),body=document.querySelector('#detailBody'),insp=document.querySelector('#inspector'),trace=document.querySelector('#trace'),clear=document.querySelector('#clear');
+ if(id){const n=nodeLookup.get(id);tt.textContent='Component '+id+(state.selected?' · Pinned':' · Preview');nn.textContent=n.name+' · '+n.tech;body.textContent=n.desc;trace.hidden=!state.selected||id[0]==='X';clear.hidden=!state.selected;trace.classList.toggle('selected',state.trace);trace.textContent=state.trace?'Show immediate connections':'Trace upstream + downstream';const ins=LINKS.filter(e=>e.b===id),outs=LINKS.filter(e=>e.a===id);insp.replaceChildren();const h=document.createElement('h3');h.textContent='Documented direct dependencies';insp.appendChild(h);
+ if(!ins.length&&!outs.length){const info=document.createElement('div');info.className='empty';info.textContent='Cross-cutting platform service. The supplied v5 drawing shows no direct arrows to this component; none have been invented.';insp.append(info)}else{function add(e,dir){const target=dir==='in'?e.a:e.b;const d=document.createElement('div');d.className='dep';d.innerHTML='<span class="dep-id">'+e.a+'</span><span class="dep-arrow">→</span><span class="dep-title">'+e.b+' · '+(dir==='in'?'From ':'To ')+nodeLookup.get(target).name+'</span>';insp.append(d);if(e.label){const label=document.createElement('div');label.className='dep-label';label.textContent=e.label;insp.append(label)}}ins.forEach(e=>add(e,'in'));outs.forEach(e=>add(e,'out'));}
+ }else{trace.hidden=true;clear.hidden=true;tt.textContent=state.flow==='overview'?'Architecture overview':'Focused workflow';nn.textContent=FLOWS[state.flow].name;body.textContent=FLOWS[state.flow].description;insp.innerHTML='<h3>How to explore</h3><p>Choose a flow above or select a component on the diagram. Only active paths receive directional animation; inactive links fade into the background. Dashed connectors reproduce orchestration, correction and feedback paths from v5.</p>'}
+}
+function update(){document.querySelectorAll('[data-flow]').forEach(b=>b.classList.toggle('active',b.dataset.flow===state.flow&&!state.selected));updateEdges();updateDetails();}
+renderNodes();
+document.querySelectorAll('[data-flow]').forEach(b=>b.addEventListener('click',()=>{state.flow=b.dataset.flow;state.selected=null;state.hover=null;state.trace=false;update()}));
+document.querySelector('#trace').addEventListener('click',()=>{if(state.selected){state.trace=!state.trace;update()}});
+document.querySelector('#clear').addEventListener('click',()=>{state.selected=null;state.trace=false;state.hover=null;update()});
+document.querySelector('#reset').addEventListener('click',()=>{state.flow='overview';state.selected=null;state.hover=null;state.trace=false;update()});
+document.querySelector('#pause').addEventListener('click',e=>{state.playing=!state.playing;e.currentTarget.textContent=state.playing?'Ⅱ Pause motion':'▶ Resume motion';e.currentTarget.setAttribute('aria-pressed',String(!state.playing));updateEdges()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){state.selected=null;state.hover=null;state.trace=false;update()}if(['1','2','3','4'].includes(e.key)&&!['INPUT','TEXTAREA'].includes(document.activeElement?.tagName)){state.flow={1:'ingest',2:'ground',3:'create',4:'learn'}[e.key];state.selected=null;state.hover=null;state.trace=false;update()}});
+const resize=()=>requestAnimationFrame(buildSvg);if(window.ResizeObserver){new ResizeObserver(resize).observe(canvas)}else window.addEventListener('resize',resize);
+requestAnimationFrame(()=>{buildSvg();update()});
+</script>
+</body></html>
