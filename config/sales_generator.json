@@ -1,0 +1,41 @@
+{
+  "start_date": "2025-01-01",
+  "seed": 42,
+  "channel": "ECOMMERCE",
+  "weekday_effects": [
+    0.94,
+    0.96,
+    1.0,
+    1.02,
+    1.12,
+    1.18,
+    1.08
+  ],
+  "noise_bound": 0.12,
+  "seasonality_amplitude": 0.18,
+  "trend_bound": 0.15,
+  "discount_rate": "0.05",
+  "refund_rate": "0.02",
+  "baseline_by_type": {
+    "Serum": 32,
+    "Moisturizer": 38,
+    "Cleanser": 45,
+    "Sunscreen": 35,
+    "Toner": 25,
+    "Mask": 18,
+    "Eye Care": 20,
+    "Face Oil": 18,
+    "Lip Care": 40,
+    "Exfoliator": 20
+  },
+  "campaign_effects": {
+    "enabled": true,
+    "uplift_by_objective": {
+      "AWARENESS": 0.1,
+      "CONSIDERATION": 0.18,
+      "CONVERSION": 0.28
+    },
+    "variation_bound": 0.15,
+    "edge_strength": 0.6
+  }
+}

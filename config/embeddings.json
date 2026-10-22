@@ -1,0 +1,12 @@
+{
+  "version": "embeddings-v1",
+  "location": "asia-south1",
+  "text_model": "gemini-embedding-001",
+  "text_dimension": 768,
+  "text_task": "RETRIEVAL_DOCUMENT",
+  "image_model": "multimodalembedding@001",
+  "image_dimension": 512,
+  "request_interval_seconds": 0.6,
+  "max_attempts": 4,
+  "cache_directory": "data/generated/embeddings_cache"
+}

@@ -1,0 +1,15 @@
+**
+!src/
+!src/**
+src/**/__pycache__/**
+src/**/*.pyc
+!config/
+!config/**
+!sql/
+!sql/*.sql
+!deploy/
+!deploy/marketing/
+!deploy/marketing/Dockerfile
+!deploy/marketing/app.py
+!deploy/marketing/cloudbuild.yaml
+!deploy/marketing/.gcloudignore

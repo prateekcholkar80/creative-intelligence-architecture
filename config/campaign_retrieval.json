@@ -1,0 +1,7 @@
+{
+  "model_id": "gemini-embedding-001",
+  "dimension": 768,
+  "location": "asia-south1",
+  "top_k": 3,
+  "maximum_bytes_billed": 134217728
+}

@@ -1,0 +1,82 @@
+{
+  "version": "rejuvenate-image-use-proposal-v1",
+  "status": "USER_AUTHORIZED_CROP_CREATED_PENDING_PROTECTED_BINDING",
+  "scope": {
+    "sku": "CI-SKU-0022",
+    "country": "US",
+    "channel": "META",
+    "audience": "NEW",
+    "use": "FIRST_PRIVATE_IDENTITY_ONLY_CAMPAIGN_EVALUATION"
+  },
+  "source": {
+    "binding_id": "eval_upload_binding_v1_81feff98013b48e40fddb1fca01ec31e08c5cfdf9db537096697d29dee5131df",
+    "submission_id": "dc2bc1fba4a8497c9a6f5552729c4ff6417c51429218c210bd58898a40398282",
+    "filename": "PDP-Rejuvenate-JUN2026-01-2000px_1100x.webp",
+    "sha256": "6d82f00cad45e5aa1f14ad6e9118e9ee0e952e4b69f1d65875fc26bbf516294e",
+    "generation": "1792478048607371",
+    "width": 1100,
+    "height": 1100
+  },
+  "original_badge_use": "WITHHELD_PENDING_SCOPED_REVIEW",
+  "proposed_treatment": {
+    "method": "DETERMINISTIC_RECTANGULAR_CROP_NO_GENERATIVE_PRODUCT_EDIT",
+    "coordinate_system": "ORIGINAL_DECODED_PIXELS_LEFT_TOP_RIGHT_BOTTOM_RIGHT_BOTTOM_EXCLUSIVE",
+    "crop_box": [
+      340,
+      180,
+      800,
+      940
+    ],
+    "output_width": 460,
+    "output_height": 760,
+    "retain": [
+      "FULL_BOTTLE",
+      "DROPPER",
+      "PRODUCT_LABEL",
+      "NATURAL_SHADOW"
+    ],
+    "exclude": [
+      "EXTERNAL_CLINICAL_RESULTS_BADGE"
+    ],
+    "region_basis": "ASSISTANT_VISUAL_PROPOSAL_NOT_DURABLE_ASSESSMENT",
+    "derivative_created": true,
+    "derivative_sha256": "fe7ecc30eba9bf4e1ab7b4b58105d5be3f12d6ab7357211d9b35c3756828962c"
+  },
+  "copy_limits": {
+    "headline": "CURRENT_BIGQUERY_PRODUCT_NAME_ONLY",
+    "body": "",
+    "cta": "View product",
+    "clinical_benefit_endorsement_claims": "EXCLUDED"
+  },
+  "required_before_derivative_use": [
+    "USER_DECISION_ON_PRODUCT_ONLY_CROP",
+    "RECHECK_ORIGINAL_SOURCE_AND_CURRENT_ACCESS",
+    "VERIFY_CROP_RETAINS_COMPLETE_PRODUCT_AND_LABEL",
+    "VERIFY_CROP_CONTAINS_NO_EXTERNAL_BADGE_OR_NEW_CLAIM",
+    "RECORD_DERIVATIVE_BYTES_HASH_GENERATION_AND_TRANSFORM_LINEAGE",
+    "BIND_DERIVATIVE_SEPARATELY_WITHOUT_CHANGING_ORIGINAL_BINDING",
+    "COMPLETE_SCOPED_IMAGE_USE_AND_ARTIFACT_CHECKS"
+  ],
+  "clinical_claim_approval": false,
+  "image_use_approval_record_id": null,
+  "generation_authorized": false,
+  "qualifying": false,
+  "release_allowed": false,
+  "user_decision": {
+    "source": "EXPLICIT_USER_CONVERSATION",
+    "decision": "Use product-only crop; exclude badge (Recommended)",
+    "scope": "DETERMINISTIC_PRODUCT_ONLY_CROP_FOR_FIRST_PRIVATE_CAMPAIGN",
+    "clinical_claim_approval": false,
+    "campaign_release_approval": false
+  },
+  "derivative_manifest": "data/generated/rejuvenate_campaign/rejuvenate_product_only_crop_v1.json",
+  "derivative_path": "data/generated/rejuvenate_campaign/rejuvenate_product_only_crop_v1.png",
+  "completed_local_checks": [
+    "EXPLICIT_USER_CROP_DECISION",
+    "ORIGINAL_BYTES_HASH_MATCH",
+    "DECODED_PIXELS_EQUAL_ORIGINAL_REGION",
+    "LOSSLESS_PNG_ROUNDTRIP",
+    "ASSISTANT_VISUAL_FULL_PRODUCT_RETENTION",
+    "ASSISTANT_VISUAL_BADGE_EXCLUSION"
+  ]
+}

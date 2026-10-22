@@ -1,0 +1,8 @@
+{
+  "version": "creative-experiment-plan-v1",
+  "canonical_sku": "CI-SKU-0001",
+  "control_asset_id": "SYN-GEN-CI-SKU-0001-1e2e5aa8f08b225996e63a695411a5c2531df5c2d983e37af114b4d0b2dda7af",
+  "variant_asset_id": "SYN-GEN-CI-SKU-0001-2022410d5e304bf7521a552d954f2ac6bba0946c0f53bbed7553d7b022a5e249",
+  "allocation_percent": {"A": 50, "B": 50},
+  "primary_metric": "CONVERSION_RATE"
+}

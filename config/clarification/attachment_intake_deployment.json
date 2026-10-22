@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "bucket": "ci-campaign-evidence-1042059373096",
+  "policy": {
+    "policy_id": "campaign-evidence-clarification",
+    "version": "draft-v1",
+    "policy_sha256": "97497414d6aed432b013ed5565ef717b3705198334d2c2e68c3c5c92012620df"
+  }
+}

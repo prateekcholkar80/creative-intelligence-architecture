@@ -1,0 +1,102 @@
+-- Atomic evidence-snapshot append. Python replaces fixed typed-row tokens;
+-- identity, parent pins, rows, revisions and audit values remain parameters.
+CREATE TEMP TABLE candidate_evidence AS
+  SELECT r.* FROM UNNEST(__EVIDENCE_ROWS__) r;
+CREATE TEMP TABLE result(state STRING, evidence_snapshot_id STRING,
+  evidence_row_count INT64, bundle_sha256 STRING, audit_row STRING);
+BEGIN
+  BEGIN TRANSACTION;
+  ASSERT CURRENT_TIMESTAMP() < @plan_expires_at AS 'WORKFLOW_EVIDENCE_EXPIRED';
+  ASSERT (SELECT COUNT(*) FROM candidate_evidence)=@evidence_row_count
+    AS 'WORKFLOW_EVIDENCE_CANDIDATE_COUNT';
+  ASSERT (SELECT COUNT(DISTINCT evidence_ref_id) FROM candidate_evidence)=@evidence_row_count
+    AS 'WORKFLOW_EVIDENCE_CANDIDATE_DUPLICATE';
+  ASSERT (SELECT COUNT(*) FROM candidate_evidence
+    WHERE workspace_id=@workspace_id AND evidence_snapshot_id=@evidence_snapshot_id
+      AND job_id=@job_id AND request_id=@request_id AND attempt_id=@attempt_id)=@evidence_row_count
+    AS 'WORKFLOW_EVIDENCE_CANDIDATE_SCOPE';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.workspaces`
+    WHERE workspace_id=@workspace_id AND status='ACTIVE'
+      AND ((revision=@workspace_revision AND updated_at=@workspace_updated_at)
+        OR (revision=@workspace_candidate_revision AND updated_at=@publish_observed_at)))=1
+    AS 'WORKFLOW_EVIDENCE_WORKSPACE_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.memberships`
+    WHERE workspace_id=@workspace_id AND principal_id=@principal_id AND status='ACTIVE'
+      AND revision=@membership_revision AND updated_at=@membership_updated_at
+      AND 'CREATOR' IN UNNEST(roles))=1 AS 'WORKFLOW_EVIDENCE_MEMBER_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.conversations`
+    WHERE workspace_id=@workspace_id AND conversation_id=@conversation_id
+      AND owner_id=@principal_id AND status='ACTIVE' AND access_revision=@conversation_revision
+      AND updated_at=@conversation_updated_at)=1 AS 'WORKFLOW_EVIDENCE_CONVERSATION_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.requests` t
+    WHERE workspace_id=@workspace_id AND request_id=@request_id
+      AND created_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31')
+      AND TO_JSON_STRING(t)=TO_JSON_STRING(__REQUEST_PIN__))=1
+    AS 'WORKFLOW_EVIDENCE_REQUEST_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.jobs` t
+    WHERE workspace_id=@workspace_id AND job_id=@job_id
+      AND state='RUNNING' AND active_attempt_id=@attempt_id
+      AND TO_JSON_STRING(t)=TO_JSON_STRING(__JOB_PIN__))=1
+    AS 'WORKFLOW_EVIDENCE_JOB_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.job_attempts` t
+    WHERE workspace_id=@workspace_id AND attempt_id=@attempt_id AND state='RUNNING'
+      AND started_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31')
+      AND TO_JSON_STRING(t)=TO_JSON_STRING(__ATTEMPT_PIN__))=1
+    AS 'WORKFLOW_EVIDENCE_ATTEMPT_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.evidence_snapshots`
+    WHERE workspace_id=@workspace_id AND evidence_snapshot_id=@evidence_snapshot_id
+      AND created_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31'))<=@evidence_row_count
+    AS 'WORKFLOW_EVIDENCE_ROW_COUNT_CONFLICT';
+  ASSERT (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.audit_events`
+    WHERE workspace_id=@workspace_id AND audit_id=@audit_id
+      AND occurred_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31'))<=1
+    AS 'WORKFLOW_EVIDENCE_AUDIT_DUPLICATE';
+
+  ASSERT (
+    ((SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.evidence_snapshots`
+      WHERE workspace_id=@workspace_id AND evidence_snapshot_id=@evidence_snapshot_id
+        AND created_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31'))=0
+     AND (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.audit_events`
+      WHERE workspace_id=@workspace_id AND audit_id=@audit_id
+        AND occurred_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31'))=0)
+    OR
+    ((SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.evidence_snapshots`
+      WHERE workspace_id=@workspace_id AND evidence_snapshot_id=@evidence_snapshot_id
+        AND created_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31'))=@evidence_row_count
+     AND (SELECT COUNT(*)
+       FROM `project-661d501a-e709-4276-a26.ci_application.evidence_snapshots` t
+       JOIN candidate_evidence c USING (workspace_id,evidence_snapshot_id,evidence_ref_id)
+       WHERE t.workspace_id=@workspace_id AND t.evidence_snapshot_id=@evidence_snapshot_id
+         AND t.created_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31')
+         AND TO_JSON_STRING(t)=TO_JSON_STRING(c))=@evidence_row_count
+     AND (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.audit_events` t
+       WHERE workspace_id=@workspace_id AND audit_id=@audit_id
+         AND occurred_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31')
+         AND TO_JSON_STRING(t)=TO_JSON_STRING(__AUDIT_ROW__))=1))
+    AS 'WORKFLOW_EVIDENCE_IDEMPOTENCY_CONFLICT';
+
+  IF (SELECT COUNT(*) FROM `project-661d501a-e709-4276-a26.ci_application.evidence_snapshots`
+      WHERE workspace_id=@workspace_id AND evidence_snapshot_id=@evidence_snapshot_id
+        AND created_at BETWEEN TIMESTAMP('0001-01-01') AND TIMESTAMP('9999-12-31'))=0 THEN
+    UPDATE `project-661d501a-e709-4276-a26.ci_application.workspaces` t
+      SET status=r.status,revision=r.revision,created_at=r.created_at,updated_at=r.updated_at
+      FROM UNNEST([__WORKSPACE_CANDIDATE__]) r
+      WHERE t.workspace_id=r.workspace_id AND t.revision=@workspace_revision;
+    ASSERT @@row_count=1 AS 'WORKFLOW_EVIDENCE_FENCE_CONFLICT';
+    INSERT INTO `project-661d501a-e709-4276-a26.ci_application.evidence_snapshots`
+      SELECT * FROM candidate_evidence;
+    ASSERT @@row_count=@evidence_row_count AS 'WORKFLOW_EVIDENCE_INSERT_CONFLICT';
+    INSERT INTO `project-661d501a-e709-4276-a26.ci_application.audit_events`
+      SELECT r.* FROM UNNEST([__AUDIT_ROW__]) r;
+    INSERT INTO result VALUES ('APPLIED',@evidence_snapshot_id,@evidence_row_count,
+      @bundle_sha256,TO_JSON_STRING(__AUDIT_ROW__));
+  ELSE
+    INSERT INTO result VALUES ('REUSED',@evidence_snapshot_id,@evidence_row_count,
+      @bundle_sha256,TO_JSON_STRING(__AUDIT_ROW__));
+  END IF;
+  COMMIT TRANSACTION;
+EXCEPTION WHEN ERROR THEN
+  ROLLBACK TRANSACTION;
+  RAISE;
+END;
+SELECT * FROM result;

@@ -1,0 +1,35 @@
+{
+  "version": "private-evaluation-source-selection-v1",
+  "scope": {
+    "workspace_id": "ci-poc-marketing",
+    "conversation_id": "marketing-8981f0908b82c0c67246842c5d220a3a",
+    "request_id": "interpret-v1-80d8f29e076a2dacc3f30b72385b153c019dbce0053a5f1a48e33f97ad48e292",
+    "sku": "CI-SKU-0022",
+    "country": "US",
+    "channel": "META"
+  },
+  "image_binding_id": "eval_upload_binding_v1_81feff98013b48e40fddb1fca01ec31e08c5cfdf9db537096697d29dee5131df",
+  "sources": [
+    {
+      "submission_id": "dc2bc1fba4a8497c9a6f5552729c4ff6417c51429218c210bd58898a40398282",
+      "content_sha256": "6d82f00cad45e5aa1f14ad6e9118e9ee0e952e4b69f1d65875fc26bbf516294e",
+      "generation": "1792478048607371",
+      "content_type": "image/webp",
+      "role": "BOUND_IMAGE"
+    },
+    {
+      "submission_id": "36f0be838f8c222166cc23ac3168d2bd02d86a9a2562ccbab4b4b30ff7d6e4cc",
+      "content_sha256": "a93f2ed6712648713c8a3550356f80de25ae27e4be41daf29192118aa9404b0b",
+      "generation": "1792481741510740",
+      "content_type": "text/plain",
+      "role": "DOCUMENT"
+    },
+    {
+      "submission_id": "88a3ca314643c338d568faea496e480af9710cc5c4f233924f396d11fcd95c18",
+      "content_sha256": "307e08044c6f3208f7de466932405aa16b01a9fe71f104fbcced9eab310f3f5f",
+      "generation": "1792481741703522",
+      "content_type": "text/plain",
+      "role": "DOCUMENT"
+    }
+  ]
+}

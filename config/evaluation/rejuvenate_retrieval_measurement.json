@@ -1,0 +1,41 @@
+{
+  "version": "private-retrieval-operation-v1",
+  "run_id": "rejuvenate-retrieval-calibration-v1",
+  "query_id": "rejuvenate-application-instructions",
+  "query_text": "How many drops of Rejuvenate face oil should I use, and how long should I wait before applying another product?",
+  "index_record_id": "0bd15ce74c60d931b256b58bfea672a47b13c29684bdd2fb89de5ed7419cf865",
+  "index_sha256": "a821b8478fc84b31a9343de1041fe469e9e1365567743d80d0346d42f23f5e49",
+  "case": {
+    "version": "private-retrieval-relevance-case-v1",
+    "case_id": "rejuvenate-application-instructions",
+    "label_authority": "SOURCE_REVIEW_CALIBRATION_NOT_INDEPENDENT_QUALIFICATION",
+    "corpus_sha256": "8eeba277aa979897fbae4915da693e17caae2373ecaec9bbd71340bdc9c7d883",
+    "index_sha256": "a821b8478fc84b31a9343de1041fe469e9e1365567743d80d0346d42f23f5e49",
+    "query_text_sha256": "4d785ceb456dde5e1c4a570e269a64aa0ce05b3a6d8c5f81cd102820191014c7",
+    "scope": {
+      "sku": "CI-SKU-0022",
+      "country": "US",
+      "channel": "META"
+    },
+    "labels": [
+      {
+        "chunk_id": "59b2bf279f0e1e4755541c32b88cc086fdd86c588243b28239ea70772c224e7a",
+        "text_sha256": "a93f2ed6712648713c8a3550356f80de25ae27e4be41daf29192118aa9404b0b",
+        "grade": 3,
+        "rationale": "Contains drop quantity and explicit wait intervals."
+      },
+      {
+        "chunk_id": "6a7bed1b43a884d9275a8f528455281271b503fdc81b055f468ea02b58348aa6",
+        "text_sha256": "a63c39d725411e354fd82956899486222057c3e55f25c62908ae4c8858ccd9c6",
+        "grade": 0,
+        "rationale": "Ingredients and product description do not answer quantity or wait intervals."
+      },
+      {
+        "chunk_id": "989856fb14c70b5698c7ea67a4992f6c91e706574b18cb22b98dd8b775756add",
+        "text_sha256": "28d463dd5a83926ff5a3e648f7d897ebc1774f474b87b66fa1264ce48d860e33",
+        "grade": 1,
+        "rationale": "Provides serum-before-oil sequencing context but no quantity or timed interval."
+      }
+    ]
+  }
+}

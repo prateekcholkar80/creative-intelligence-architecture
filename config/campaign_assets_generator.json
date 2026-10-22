@@ -1,0 +1,12 @@
+{
+  "width": 1200,
+  "height": 628,
+  "font_path": "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "background": "#F6F3EE",
+  "text_color": "#202822",
+  "accent_by_objective": {
+    "AWARENESS": "#315C49",
+    "CONSIDERATION": "#455D7A",
+    "CONVERSION": "#795143"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "version": "private-vertex-campaign-test-v1",
+  "settings": {
+    "run_id": "rejuvenate-private-campaign-v1",
+    "case_id": "rejuvenate-product-preserved-visual-pilot",
+    "render_config_json": "{\"body_font_path\":\"assets/fonts/campaign/opensans.ttf\",\"heading_font_path\":\"assets/fonts/campaign/lora.ttf\",\"heading_max_size\":46,\"heading_min_size\":28,\"height\":628,\"width\":1200}",
+    "render_config_sha256": "4915d49eb98dffa99c2b384a0e98fc6d8355501838d188b08ab7b4fd428c356c",
+    "profile": {
+      "model_id": "gemini-3.1-flash-image",
+      "location": "global",
+      "api_version": "v1",
+      "aspect_ratio": "16:9",
+      "image_size": "1K",
+      "endpoint_authorized": true
+    },
+    "crop_binding_id": "eval_image_derivation_v1_eee3f7de724ad97b2076681b785e7431fe602ceb5695ef8d8047f121b571cefc",
+    "enabled": true
+  },
+  "endpoint_authorization": {
+    "decision": "ALLOW_GLOBAL_FOR_THIS_PRIVATE_IMAGE_TEST",
+    "source": "EXPLICIT_USER_CONVERSATION_20261021",
+    "storage_location": "asia-south1",
+    "outgoing_data": [
+      "AUTHORIZED_PRODUCT_ONLY_CROP_PNG",
+      "PRODUCT_IDENTITY_NAME",
+      "PINNED_PRIVATE_SCENE_PROMPT"
+    ]
+  }
+}

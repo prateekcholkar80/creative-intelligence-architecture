@@ -1,0 +1,24 @@
+# Allowlisted build context. Never upload business exports, secrets or credentials.
+**
+!src/
+!src/**
+src/**/__pycache__/**
+src/**/*.pyc
+!config/
+!config/**
+!sql/
+!sql/*.sql
+!deploy/
+!deploy/prompt-registration/
+!deploy/prompt-registration/Dockerfile
+!deploy/prompt-registration/app.py
+!deploy/prompt-registration/cloudbuild.yaml
+!deploy/prompt-registration/.gcloudignore
+
+!docs/
+!docs/CAMPAIGN_ACCEPTANCE_POLICY.md
+!docs/CAMPAIGN_ACCEPTANCE_POLICY_V02.md
+!data/
+!data/generated/
+!data/generated/campaign_e1_diagnostics/
+!data/generated/campaign_e1_diagnostics/catalog_import_verification_20261015.json

@@ -1,0 +1,207 @@
+{
+  "version": "campaign-e2-executable-fixtures-v1",
+  "e1_review_sha256": "dc80755c1873d0e586431fe5bc551e03fdb84b6b46a335b8c296099096738862",
+  "provenance": "FROZEN_OFFICIAL_PRODUCT_OBSERVATIONS_WITH_SIMULATED_ACCESS_AND_FRESHNESS",
+  "label_scope": "A01_PROJECTION_ONLY_NOT_FULL_E1_CASE",
+  "clock": "2026-10-15T00:00:00+00:00",
+  "cases": [
+    {
+      "e1_case_id": "e1-brand-1-identity",
+      "expected_e1_decision": "PASS",
+      "projected_rule": "A01",
+      "projected_expected_state": "PASS",
+      "source_projection_sha256": "1534592085d5e3589482c72143741acf8f019ae2666e56fbc6bb92da4cee5d9e",
+      "source": {
+        "source_id": "official-product-1",
+        "sku": "CI-SKU-0021",
+        "fields_json": "{\"full_size_ml\":\"30\",\"product_name\":\"Renew Resurfacing Night Serum\"}",
+        "observed_at": "2026-10-15T00:00:00+00:00",
+        "valid_until": "2026-10-15T00:02:00+00:00",
+        "access_allowed": true
+      },
+      "candidate": {
+        "request_id": "e1-brand-1-identity",
+        "stage": "INTERPRETATION",
+        "sku": "CI-SKU-0021",
+        "country": "US",
+        "channel": "META",
+        "text": "The observed full-size catalog product is Renew Resurfacing Night Serum.",
+        "spans": [
+          {
+            "start": 42,
+            "end": 71,
+            "source_id": "official-product-1",
+            "field": "product_name",
+            "source_sha256": "6027809211f62035dec4b6428072e9315d585bc61bbe058783a4c5a375aefdfd"
+          }
+        ],
+        "sections_json": "{}"
+      }
+    },
+    {
+      "e1_case_id": "e1-brand-1-size-mismatch",
+      "expected_e1_decision": "BLOCK",
+      "projected_rule": "A01",
+      "projected_expected_state": "FAIL",
+      "source_projection_sha256": "1534592085d5e3589482c72143741acf8f019ae2666e56fbc6bb92da4cee5d9e",
+      "source": {
+        "source_id": "official-product-1",
+        "sku": "CI-SKU-0021",
+        "fields_json": "{\"full_size_ml\":\"30\",\"product_name\":\"Renew Resurfacing Night Serum\"}",
+        "observed_at": "2026-10-15T00:00:00+00:00",
+        "valid_until": "2026-10-15T00:02:00+00:00",
+        "access_allowed": true
+      },
+      "candidate": {
+        "request_id": "e1-brand-1-size-mismatch",
+        "stage": "GENERATION",
+        "sku": "CI-SKU-0021",
+        "country": "CA",
+        "channel": "KLAVIYO_EMAIL",
+        "text": "Describe this full-size product as 100 mL.",
+        "spans": [
+          {
+            "start": 35,
+            "end": 38,
+            "source_id": "official-product-1",
+            "field": "full_size_ml",
+            "source_sha256": "6027809211f62035dec4b6428072e9315d585bc61bbe058783a4c5a375aefdfd"
+          }
+        ],
+        "sections_json": "{}"
+      }
+    },
+    {
+      "e1_case_id": "e1-brand-2-identity",
+      "expected_e1_decision": "PASS",
+      "projected_rule": "A01",
+      "projected_expected_state": "PASS",
+      "source_projection_sha256": "dd12a349783c75b67ea26351079a0e9713dec656125e6abc2464b9b8cb7ef749",
+      "source": {
+        "source_id": "official-product-2",
+        "sku": "CI-SKU-0022",
+        "fields_json": "{\"full_size_ml\":\"35\",\"product_name\":\"Rejuvenate Restorative Face Oil\"}",
+        "observed_at": "2026-10-15T00:00:00+00:00",
+        "valid_until": "2026-10-15T00:02:00+00:00",
+        "access_allowed": true
+      },
+      "candidate": {
+        "request_id": "e1-brand-2-identity",
+        "stage": "INTERPRETATION",
+        "sku": "CI-SKU-0022",
+        "country": "US",
+        "channel": "META",
+        "text": "The observed full-size catalog product is Rejuvenate Restorative Face Oil.",
+        "spans": [
+          {
+            "start": 42,
+            "end": 73,
+            "source_id": "official-product-2",
+            "field": "product_name",
+            "source_sha256": "5938f2e563d52d5125a8d9cf02cfd44d2395d55854941b2f3bdb75119a05f0bf"
+          }
+        ],
+        "sections_json": "{}"
+      }
+    },
+    {
+      "e1_case_id": "e1-brand-2-size-mismatch",
+      "expected_e1_decision": "BLOCK",
+      "projected_rule": "A01",
+      "projected_expected_state": "FAIL",
+      "source_projection_sha256": "dd12a349783c75b67ea26351079a0e9713dec656125e6abc2464b9b8cb7ef749",
+      "source": {
+        "source_id": "official-product-2",
+        "sku": "CI-SKU-0022",
+        "fields_json": "{\"full_size_ml\":\"35\",\"product_name\":\"Rejuvenate Restorative Face Oil\"}",
+        "observed_at": "2026-10-15T00:00:00+00:00",
+        "valid_until": "2026-10-15T00:02:00+00:00",
+        "access_allowed": true
+      },
+      "candidate": {
+        "request_id": "e1-brand-2-size-mismatch",
+        "stage": "GENERATION",
+        "sku": "CI-SKU-0022",
+        "country": "CA",
+        "channel": "KLAVIYO_EMAIL",
+        "text": "Describe this full-size product as 100 mL.",
+        "spans": [
+          {
+            "start": 35,
+            "end": 38,
+            "source_id": "official-product-2",
+            "field": "full_size_ml",
+            "source_sha256": "5938f2e563d52d5125a8d9cf02cfd44d2395d55854941b2f3bdb75119a05f0bf"
+          }
+        ],
+        "sections_json": "{}"
+      }
+    },
+    {
+      "e1_case_id": "e1-brand-3-identity",
+      "expected_e1_decision": "PASS",
+      "projected_rule": "A01",
+      "projected_expected_state": "PASS",
+      "source_projection_sha256": "d6316d3fb185d4063fb4075842a7dbc35a24c9ea86aad74f072b63b7d3907a69",
+      "source": {
+        "source_id": "official-product-3",
+        "sku": "CI-SKU-0023",
+        "fields_json": "{\"full_size_ml\":\"35\",\"product_name\":\"Prevent Anti-Aging Face Oil\"}",
+        "observed_at": "2026-10-15T00:00:00+00:00",
+        "valid_until": "2026-10-15T00:02:00+00:00",
+        "access_allowed": true
+      },
+      "candidate": {
+        "request_id": "e1-brand-3-identity",
+        "stage": "INTERPRETATION",
+        "sku": "CI-SKU-0023",
+        "country": "US",
+        "channel": "META",
+        "text": "The observed full-size catalog product is Prevent Anti-Aging Face Oil.",
+        "spans": [
+          {
+            "start": 42,
+            "end": 69,
+            "source_id": "official-product-3",
+            "field": "product_name",
+            "source_sha256": "602035e163a7d11317aa28f11756d6994a7feed15fda0f2a924032c65620e37b"
+          }
+        ],
+        "sections_json": "{}"
+      }
+    },
+    {
+      "e1_case_id": "e1-brand-3-size-mismatch",
+      "expected_e1_decision": "BLOCK",
+      "projected_rule": "A01",
+      "projected_expected_state": "FAIL",
+      "source_projection_sha256": "d6316d3fb185d4063fb4075842a7dbc35a24c9ea86aad74f072b63b7d3907a69",
+      "source": {
+        "source_id": "official-product-3",
+        "sku": "CI-SKU-0023",
+        "fields_json": "{\"full_size_ml\":\"35\",\"product_name\":\"Prevent Anti-Aging Face Oil\"}",
+        "observed_at": "2026-10-15T00:00:00+00:00",
+        "valid_until": "2026-10-15T00:02:00+00:00",
+        "access_allowed": true
+      },
+      "candidate": {
+        "request_id": "e1-brand-3-size-mismatch",
+        "stage": "GENERATION",
+        "sku": "CI-SKU-0023",
+        "country": "CA",
+        "channel": "KLAVIYO_EMAIL",
+        "text": "Describe this full-size product as 100 mL.",
+        "spans": [
+          {
+            "start": 35,
+            "end": 38,
+            "source_id": "official-product-3",
+            "field": "full_size_ml",
+            "source_sha256": "602035e163a7d11317aa28f11756d6994a7feed15fda0f2a924032c65620e37b"
+          }
+        ],
+        "sections_json": "{}"
+      }
+    }
+  ]
+}

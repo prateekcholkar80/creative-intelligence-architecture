@@ -1,0 +1,33 @@
+{
+  "version": "private-product-image-derivation-operation-v1",
+  "decision": {
+    "version": "private-product-image-transform-decision-v1",
+    "decision": "EXPLICIT_USER_PRODUCT_ONLY_CROP",
+    "source_binding_id": "eval_upload_binding_v1_81feff98013b48e40fddb1fca01ec31e08c5cfdf9db537096697d29dee5131df",
+    "source_submission_id": "dc2bc1fba4a8497c9a6f5552729c4ff6417c51429218c210bd58898a40398282",
+    "source_sha256": "6d82f00cad45e5aa1f14ad6e9118e9ee0e952e4b69f1d65875fc26bbf516294e",
+    "source_dimensions": [
+      1100,
+      1100
+    ],
+    "crop_box": [
+      340,
+      180,
+      800,
+      940
+    ],
+    "output_sha256": "018ff0a57eb432f033d860f52638a690999df863b47eedc5919c6495d6da0ad3",
+    "pillow_version": "12.3.0",
+    "scope": {
+      "sku": "CI-SKU-0022",
+      "country": "US",
+      "channel": "META",
+      "audience": "NEW"
+    },
+    "claim_approval": false,
+    "release_allowed": false,
+    "crop_decoded_rgb_sha256": "23919c15c7b910ed0e3281bff4c04510d5d878c8a4a6fa47a92565ee8421c416",
+    "png_encoding": "RGB8_STORED_DEFLATE_V1"
+  },
+  "decision_sha256": "6bd0e0655696a78cd2d8b6f4dd04ce490a9b33d648d4c47f5d8bab4636eb2f91"
+}

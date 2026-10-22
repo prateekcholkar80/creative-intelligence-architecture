@@ -1,0 +1,14 @@
+{
+  "version": "private-campaign-artifact-preflight-v1",
+  "retrieved_planner": {
+    "run_id": "rejuvenate-retrieved-planner-v1",
+    "rerank_run_id": "rejuvenate-semantic-rerank-v1",
+    "enabled": false
+  },
+  "artifact": {
+    "run_id": "rejuvenate-private-campaign-v1",
+    "render_config_json": "{\"body_font_path\":\"assets/fonts/campaign/opensans.ttf\",\"heading_font_path\":\"assets/fonts/campaign/lora.ttf\",\"heading_max_size\":46,\"heading_min_size\":28,\"height\":628,\"width\":1200}",
+    "render_config_sha256": "4915d49eb98dffa99c2b384a0e98fc6d8355501838d188b08ab7b4fd428c356c",
+    "enabled": false
+  }
+}

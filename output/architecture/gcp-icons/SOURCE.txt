@@ -1,0 +1,4 @@
+Google Cloud service icons: https://cloud.google.com/icons
+Official legacy console icon archive: https://services.google.com/fh/files/misc/google-cloud-legacy-icons.zip
+Downloaded 2026-10-22. Product marks belong to Google.
+domain_validation.png is an original generic domain-validation symbol.

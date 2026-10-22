@@ -1,0 +1,13 @@
+{
+  "version": "generated-banner-retrieval-v1",
+  "embedding_version": "generated-banner-embeddings-v1",
+  "location": "asia-south1",
+  "image_model": "multimodalembedding@001",
+  "image_dimension": 512,
+  "request_interval_seconds": 0.6,
+  "max_attempts": 4,
+  "maximum_bytes_billed": 134217728,
+  "top_k": 3,
+  "max_query_characters": 128,
+  "max_query_words": 20
+}

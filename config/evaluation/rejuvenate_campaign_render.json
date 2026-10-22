@@ -1,0 +1,8 @@
+{
+  "width": 1200,
+  "height": 628,
+  "heading_font_path": "assets/fonts/campaign/lora.ttf",
+  "body_font_path": "assets/fonts/campaign/opensans.ttf",
+  "heading_max_size": 46,
+  "heading_min_size": 28
+}

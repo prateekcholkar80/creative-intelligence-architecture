@@ -1,0 +1,10 @@
+{
+  "seed": 42,
+  "variation_bound": 0.15,
+  "max_attribution_share": "0.65",
+  "channels": {
+    "PAID_SOCIAL": {"cost_per_thousand": "12", "ctr": "0.018", "conversion_rate": "0.035"},
+    "PAID_SEARCH": {"cost_per_thousand": "30", "ctr": "0.035", "conversion_rate": "0.06"},
+    "EMAIL": {"cost_per_thousand": "4", "ctr": "0.045", "conversion_rate": "0.08"}
+  }
+}

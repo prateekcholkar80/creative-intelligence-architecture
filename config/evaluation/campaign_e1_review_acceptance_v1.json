@@ -1,0 +1,17 @@
+{
+  "schema_version": "campaign-e1-scoped-review-v1",
+  "reviewed_on": "2026-10-15",
+  "review_source": "EXPLICIT_CHAT_USER_RESPONSE",
+  "reviewer_identity": "CONVERSATION_USER_NOT_A_RUNTIME_ROLE_ASSIGNMENT",
+  "response": "Approve the E1 criteria and benchmark labels within the stated scope",
+  "review_sha256": "dc80755c1873d0e586431fe5bc551e03fdb84b6b46a335b8c296099096738862",
+  "criteria_count": 47,
+  "label_count": 159,
+  "scope": "E1_CRITERIA_AND_BENCHMARK_LABELS_ONLY",
+  "scientific_claim_approval": "HELD",
+  "unreviewed_market_compliance": "HELD",
+  "claim_use_authorized": false,
+  "final_campaign_approved": false,
+  "legal_clearance": false,
+  "serving_enabled": false
+}

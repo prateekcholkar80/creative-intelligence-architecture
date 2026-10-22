@@ -1,0 +1,32 @@
+{
+  "version": "rejuvenate-vertex-visual-proposal-v1",
+  "status": "SCOPED_GLOBAL_TEST_AUTHORIZED_PENDING_DEPLOYMENT",
+  "model_id": "gemini-3.1-flash-image",
+  "location": "global",
+  "api_version": "v1",
+  "aspect_ratio": "16:9",
+  "image_size": "1K",
+  "endpoint_authorized": true,
+  "system_sha256": "692fe0eafbec14ffcc9dff4d36439c77fbc25bb3ce7b5188cd495f6a735480cc",
+  "crop_binding_id": "eval_image_derivation_v1_eee3f7de724ad97b2076681b785e7431fe602ceb5695ef8d8047f121b571cefc",
+  "crop_sha256": "018ff0a57eb432f033d860f52638a690999df863b47eedc5919c6495d6da0ad3",
+  "outgoing_data": [
+    "AUTHORIZED_PRODUCT_ONLY_CROP_PNG",
+    "PRODUCT_IDENTITY_NAME",
+    "PINNED_PRIVATE_SCENE_PROMPT"
+  ],
+  "excluded_data": [
+    "RAW_CHAT_TRANSCRIPT",
+    "UNVERIFIED_SUPPORTING_DOCUMENT_TEXT"
+  ],
+  "storage_location": "asia-south1",
+  "final_product_treatment": "COMPOSITE_ORIGINAL_CROP_NO_GENERATIVE_PRODUCT_EDIT",
+  "model_attempts": 1,
+  "definition_status": "DRAFT_PRIVATE_EVALUATION_NOT_APPROVED_RENDERER",
+  "claim_approval": false,
+  "generation_authorized": false,
+  "qualifying": false,
+  "release_allowed": false,
+  "documentation": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/3-1-flash-image",
+  "endpoint_decision": "EXPLICIT_USER_ALLOW_GLOBAL_FOR_THIS_PRIVATE_IMAGE_TEST"
+}

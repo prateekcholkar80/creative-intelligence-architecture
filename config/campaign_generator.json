@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "duration_days": 21,
+  "start_jitter_days": 14,
+  "budget_min": 500,
+  "budget_max": 2500,
+  "waves": [
+    {"offset_days": 35, "theme": "Product discovery", "objective": "AWARENESS", "channel": "PAID_SOCIAL", "audience": "Broad beauty shoppers"},
+    {"offset_days": 155, "theme": "Product consideration", "objective": "CONSIDERATION", "channel": "PAID_SEARCH", "audience": "Shoppers searching for the product"},
+    {"offset_days": 285, "theme": "Product revisit", "objective": "CONVERSION", "channel": "EMAIL", "audience": "Existing opted-in shoppers"}
+  ]
+}

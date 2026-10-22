@@ -1,0 +1,17 @@
+google-cloud-bigquery
+google-cloud-storage
+google-cloud-secret-manager>=2.31,<3
+google-crc32c>=1.9,<2
+google-cloud-aiplatform
+google-auth[requests]>=2.60,<3
+cryptography>=50,<51
+google-genai>=2.28,<3
+pandas
+pyarrow
+python-dotenv
+pyyaml
+requests
+pandas-gbq>=0.26.1
+Pillow>=10.0
+pypdf==6.21.1
+streamlit>=1.65,<2

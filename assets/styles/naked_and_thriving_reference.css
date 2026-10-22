@@ -1,0 +1,41 @@
+/* User-selected visual inspiration based on observed Naked & Thriving site CSS.
+   Apply the class explicitly. Product identity and claim wording come from the SKU.
+   Font names are references; fallbacks work without external font files.
+   Source: https://www.nakedandthriving.com/ (research captured 2026-10-07).
+   Section-specific observations, not a manufacturer brand specification. */
+.nt-visual-reference {
+  --nt-ref-white: #ffffff;
+  --nt-ref-background: #f5f4f0;
+  --nt-ref-text: #000000;
+  --nt-ref-charcoal: #373737;
+  --nt-ref-tan: #e3c499;
+  --nt-ref-sage-gray: #b2bcb8;
+  --nt-ref-heading-font: "Canela-Thin-Web", "Canela Thin", Georgia, serif;
+  --nt-ref-body-font: "BrownStd-Regular", Arial, sans-serif;
+  color: var(--nt-ref-text);
+  background: var(--nt-ref-background);
+  font-family: var(--nt-ref-body-font);
+}
+.nt-visual-reference .visual-heading {
+  font-family: var(--nt-ref-heading-font);
+  font-size: 54px;
+  font-weight: 100;
+  line-height: 75px;
+}
+.nt-visual-reference .visual-body {
+  font-family: var(--nt-ref-body-font);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.49;
+}
+.nt-visual-reference .visual-cta {
+  background: var(--nt-ref-charcoal);
+  color: var(--nt-ref-white);
+  font-family: var(--nt-ref-body-font);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 4.75px;
+  text-transform: uppercase;
+  padding: 12px 25px;
+}

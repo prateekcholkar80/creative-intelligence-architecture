@@ -1,0 +1,55 @@
+{
+  "version": "brand-memory-v1",
+  "generated_at": "2026-10-07T00:00:00+00:00",
+  "rules": [
+    {
+      "rule_id": "POC-PRODUCT-IDENTITY",
+      "category": "PRODUCT",
+      "rule_text": "Use the canonical CI-SKU key and retain the exact source product name. Do not infer attributes from a product name."
+    },
+    {
+      "rule_id": "POC-PRODUCT-IMAGE",
+      "category": "VISUAL",
+      "rule_text": "Use the retrieved original product image. Preserve product proportions, packaging text and visible appearance."
+    },
+    {
+      "rule_id": "POC-APPROVED-CLAIMS",
+      "category": "CLAIMS",
+      "rule_text": "Use the poc_approved_product_claims view for mock-approved source identity facts in POC creatives only. Benefit claims require separately evidenced real approvals. Pending and rejected candidates must not be used as claims."
+    },
+    {
+      "rule_id": "POC-NO-CONCENTRATIONS",
+      "category": "CLAIMS",
+      "rule_text": "Do not infer ingredient concentrations, clinical efficacy or benefits from ingredient presence."
+    },
+    {
+      "rule_id": "POC-PROVENANCE",
+      "category": "PROVENANCE",
+      "rule_text": "Label generated campaign and sales data SYNTHETIC_POC. Never describe it as actual historical business performance."
+    },
+    {
+      "rule_id": "POC-EVIDENCE",
+      "category": "GROUNDING",
+      "rule_text": "Retain evidence references for product facts, claims, original images and campaign analytics in generated briefs."
+    },
+    {
+      "rule_id": "POC-BRAND-AUTHORITY",
+      "category": "BRAND",
+      "rule_text": "These are project POC rules, not manufacturer brand guidelines. Use neutral layouts until actual brand guidelines are supplied."
+    }
+  ],
+  "review_fixture": {
+    "scope": "SYNTHETIC_POC_ONLY",
+    "reviewer": "SYNTHETIC_POC_REVIEWER",
+    "statuses_by_type": {
+      "PRODUCT_NAME": "APPROVED",
+      "BRAND": "PENDING_REVIEW",
+      "INGREDIENT_PRESENCE": "REJECTED"
+    },
+    "notes_by_type": {
+      "PRODUCT_NAME": "Mock approval for exact source product identity in POC creatives only; not a benefit or manufacturer approval.",
+      "BRAND": "Mock pending review for standalone brand text; awaiting brand guidelines.",
+      "INGREDIENT_PRESENCE": "Mock rejection for creative use until ingredient wording is independently reviewed; source presence does not establish benefits."
+    }
+  }
+}

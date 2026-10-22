@@ -1,0 +1,34 @@
+{
+  "source": "https://github.com/google/fonts",
+  "purpose": "PRIVATE_CANDIDATE_RUNTIME_NOT_BRAND_APPROVAL",
+  "files": [
+    {
+      "file": "lora.ttf",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/186331d77cc99caaa9c3b52391fd2b519c9e1ee8/ofl/lora/Lora%5Bwght%5D.ttf",
+      "commit": "186331d77cc99caaa9c3b52391fd2b519c9e1ee8",
+      "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7",
+      "bytes": 212196
+    },
+    {
+      "file": "lora-OFL.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/186331d77cc99caaa9c3b52391fd2b519c9e1ee8/ofl/lora/OFL.txt",
+      "commit": "186331d77cc99caaa9c3b52391fd2b519c9e1ee8",
+      "sha256": "1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716",
+      "bytes": 4423
+    },
+    {
+      "file": "opensans.ttf",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5/ofl/opensans/OpenSans%5Bwdth%2Cwght%5D.ttf",
+      "commit": "8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5",
+      "sha256": "36643644f318a812aab2d2ed3bb98f8cf0872527f835fe9398d95fe6b9adb878",
+      "bytes": 532636
+    },
+    {
+      "file": "opensans-OFL.txt",
+      "source_url": "https://raw.githubusercontent.com/google/fonts/8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5/ofl/opensans/OFL.txt",
+      "commit": "8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5",
+      "sha256": "fbbbcfef55318de350562559b671360de6d597112ecc5c73881b05092db89602",
+      "bytes": 4389
+    }
+  ]
+}

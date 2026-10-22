@@ -1,0 +1,40 @@
+# Local Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Credentials and private local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.codex/
+.aws/
+.gcloud/
+credentials*.json
+*service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Private source data, runtime evidence and generated campaign artifacts
+/data/**
+!/data/README.md
+/logs/
+/tmp/
+*.log
+
+# OS and editor state
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,15 @@
+{
+  "run_id": "rejuvenate-planner-20261020-v1",
+  "case_input_json": "{\"case_id\":\"rejuvenate-identity-image-pilot\",\"channel\":\"META\",\"country\":\"US\",\"sku\":\"CI-SKU-0022\",\"stage\":\"GENERATION\",\"turns\":[{\"role\":\"USER\",\"text\":\"Prepare one private identity-only layout proposal for Rejuvenate Restorative Face Oil for a US Meta campaign aimed at new customers. Use the supplied original bottle image as an unverified visual reference. Preserve the bottle and label. Use only the current product name and the CTA View product as copy. Do not use clinical-results badges, before-and-after imagery, ingredient or benefit claims, testimonials, offers or inferred brand approvals. This is an evaluation task; do not release a campaign or close the original saved request.\"}]}",
+  "case_sha256": "4141dbd719f11f520b213c121590d3c58f9bded75c704b20a2ee9e9823556300",
+  "binding_id": "eval_upload_binding_v1_81feff98013b48e40fddb1fca01ec31e08c5cfdf9db537096697d29dee5131df",
+  "conversation_id": "marketing-8981f0908b82c0c67246842c5d220a3a",
+  "request_id": "interpret-v1-80d8f29e076a2dacc3f30b72385b153c019dbce0053a5f1a48e33f97ad48e292",
+  "submission_ids": [
+    "dc2bc1fba4a8497c9a6f5552729c4ff6417c51429218c210bd58898a40398282"
+  ],
+  "prompt_id": "8609514695067435008",
+  "prompt_version": "1",
+  "prompt_snapshot_sha256": "01ef0718239cb95e2231153649eec641077443443ab25ff0ef348609ce767fed",
+  "enabled": true
+}

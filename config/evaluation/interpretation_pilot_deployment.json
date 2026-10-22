@@ -1,0 +1,46 @@
+{
+  "current": {
+    "run_id": "interpretation-pilot-20261018-v3",
+    "case_id": "e1-closure-missing-report",
+    "case_sha256": "e9716239c2dabbf9f3f6aee53f3f5e5dc268016b385d50d27a58094f49740ec0",
+    "prompt_id": "5933813566455939072",
+    "prompt_version": "1",
+    "prompt_snapshot_sha256": "89a252d4d8e4c9a14080b5578a9eccf3019501b0f971c0f9db049047ccf82f58",
+    "policy_id": "campaign-evidence-clarification",
+    "policy_version": "draft-v1",
+    "policy_sha256": "97497414d6aed432b013ed5565ef717b3705198334d2c2e68c3c5c92012620df",
+    "evaluator_sha256": "b49cebb51b4d4af87f6285a2f5f75f4da19526f1c50d60ace3d16d5dc7740d29",
+    "enabled": true,
+    "recovery_only": false,
+    "judge_contract_version": "campaign-semantic-checkers-v5"
+  },
+  "original_recovery": {
+    "run_id": "interpretation-pilot-20261018-v1",
+    "case_id": "e1-closure-missing-report",
+    "case_sha256": "e9716239c2dabbf9f3f6aee53f3f5e5dc268016b385d50d27a58094f49740ec0",
+    "prompt_id": "5933813566455939072",
+    "prompt_version": "1",
+    "prompt_snapshot_sha256": "89a252d4d8e4c9a14080b5578a9eccf3019501b0f971c0f9db049047ccf82f58",
+    "policy_id": "campaign-evidence-clarification",
+    "policy_version": "draft-v1",
+    "policy_sha256": "97497414d6aed432b013ed5565ef717b3705198334d2c2e68c3c5c92012620df",
+    "evaluator_sha256": "7cff215eaf3d69ff8fe7291c249f9a6d945e236e4679969beb20d58972d0c5ec",
+    "enabled": true,
+    "recovery_only": true
+  },
+  "previous_recovery": {
+    "run_id": "interpretation-pilot-20261018-v2",
+    "case_id": "e1-closure-missing-report",
+    "case_sha256": "e9716239c2dabbf9f3f6aee53f3f5e5dc268016b385d50d27a58094f49740ec0",
+    "prompt_id": "5933813566455939072",
+    "prompt_version": "1",
+    "prompt_snapshot_sha256": "89a252d4d8e4c9a14080b5578a9eccf3019501b0f971c0f9db049047ccf82f58",
+    "policy_id": "campaign-evidence-clarification",
+    "policy_version": "draft-v1",
+    "policy_sha256": "97497414d6aed432b013ed5565ef717b3705198334d2c2e68c3c5c92012620df",
+    "evaluator_sha256": "f8325305e75637668f509e0979dfb07099aa8a938f01e084b7f8845f7ab1cb54",
+    "enabled": true,
+    "recovery_only": true,
+    "judge_contract_version": "campaign-semantic-checkers-v4"
+  }
+}

@@ -1,0 +1,90 @@
+CREATIVE INTELLIGENCE — COMPONENT REFERENCE
+Companion to creative-intelligence-architecture-compact-v5.png / .svg
+
+S1 | Product + brand
+Product metadata, ingredients, usage instructions, brand rules and supporting documents.
+
+S2 | Visual assets
+Original pack shots, approved derived imagery and historical campaign creatives.
+
+S3 | Commerce
+Orders, order lines, refunds, discounts, product costs, store mappings and inventory.
+
+S4 | Performance
+Ad spend, audience and channel performance, attribution and experiment results.
+
+P1 | Intake
+Protected source intake validates file types and scope, maps SKU identities, deduplicates and stores immutable originals.
+
+P2 | Orchestrate
+Workflows coordinates durable preparation jobs; Cloud Scheduler starts scheduled sync. Stable job identities and recovery prevent blind repeat execution.
+
+P3 | Extract + classify
+Workers extract and segment text, classify images and prepare authorized derivatives while retaining provenance.
+
+P4 | Embed
+Versioned text and multimodal embeddings retain source, task, dimension, provider and usage records.
+
+P5 | Transform metrics
+Transforms commerce and marketing data into reconciled dimensions, facts and governed metric views.
+
+D1 | Source + artifact bytes
+Stores original files, generation-pinned product images, derived assets and generated campaign artifacts.
+
+D2 | Knowledge + vectors
+Holds product facts, text chunks, asset metadata, embedding profiles, source bindings, scoped claims and review records.
+
+D3 | Commerce marts
+Curated product/store/campaign dimensions and sales, returns, stock and spend facts support revenue, margin, CVR and ROAS with explicit definitions.
+
+C1 | Campaign studio
+Marketers select a product and provide the brief, market, audience and formats; authenticated users can clarify and reconnect to saved work.
+
+C2 | Coordinate
+Checks scope, readiness and execution limits, then coordinates durable generation stages and recovery.
+
+C3 | Ground
+Retrieves eligible lexical/vector candidates, reranks them and runs typed analytics queries. Binds selected evidence, metrics and query lineage to the brief.
+
+C4 | Plan
+Produces structured concepts, copy and layout using exact evidence, source images and versioned prompts.
+
+C5 | Render
+Generates visual scenes, preserves the actual product asset and composes approved copy and format-specific layouts.
+
+C6 | Validate + release
+Checks product fidelity, claims, safety, brand and format; supports bounded correction and scoped approval before delivery.
+
+O1 | Execution evidence
+Records exact inputs, attempts, provider responses, usage, original job IDs, artifact generations and measured scores.
+
+O2 | Campaign package
+Delivers campaign concepts, copy, banners, format variants, source references, analytics context and validation records through protected access.
+
+O3 | Outcome feedback
+Links human feedback and measured campaign results to campaign, creative and SKU IDs. Feeds governed analytics and evaluation of future changes.
+
+X1 | Identity
+Identity, workspace and resource authorization; narrow service-account permissions and data access boundaries.
+
+X2 | Secrets
+Protected configuration and secrets, with versioned prompt/model/policy bindings.
+
+X3 | CI/CD
+Focused verification, controlled source packaging, immutable images and Cloud Run deployment/rollback.
+
+X4 | Evaluation
+Independent retrieval and artifact evaluation, adversarial cases, human review and version-specific quality gates.
+
+X5 | Observability
+Correlated stage progress, latency, failures, safe diagnostics, readiness and freshness alerts.
+
+X6 | Cost + recovery
+Tracks provider/query/compute usage, bounds resource use and preserves uncertain operation recovery.
+
+FLOW NOTES
+Evidence retrieval and governed analytics supply different inputs to campaign grounding.
+Actual generation-pinned product images feed visual production.
+Analytics retain their SKU/store/market scope, time window, metric definition and freshness.
+Commercial outcomes do not substantiate product efficacy claims.
+The orchestrator coordinates execution; BigQuery remains the business-record and vector authority, and GCS stores bytes.

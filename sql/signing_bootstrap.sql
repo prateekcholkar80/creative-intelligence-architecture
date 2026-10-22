@@ -1,0 +1,38 @@
+-- 4.2 Critical/Must have/shared pilot. Submission MUST use the reserved slot ID.
+-- Empty INSERT is not the coordinator: the native job registry owns execution.
+DECLARE observed_at TIMESTAMP;
+BEGIN
+  BEGIN TRANSACTION;
+  SET observed_at=CURRENT_TIMESTAMP();
+  ASSERT observed_at>=@accepted_at AND observed_at<@deadline_at AS 'BOOTSTRAP_WINDOW_CLOSED';
+  ASSERT @attempt BETWEEN 0 AND 2 AS 'INVALID_BOOTSTRAP_ATTEMPT';
+  __INPUTS__
+  ASSERT (SELECT COUNT(*) FROM proposed_publication)=1
+    AND (SELECT COUNT(*) FROM proposed_head)=1 AS 'BOOTSTRAP_PROPOSAL_INVALID';
+  ASSERT NOT EXISTS (SELECT 1 FROM __SIGNING_HEADS__ WHERE policy_id=@policy_id)
+    AND NOT EXISTS (SELECT 1 FROM __SIGNING_PUBLICATIONS__ WHERE policy_id=@policy_id)
+    AND NOT EXISTS (SELECT 1 FROM __SIGNING_KEY_HISTORY__ WHERE policy_id=@policy_id)
+    AND NOT EXISTS (SELECT 1 FROM __SIGNING_CHECKPOINTS__ WHERE policy_id=@policy_id)
+    AS 'BOOTSTRAP_POLICY_ALREADY_EXISTS';
+  INSERT INTO __SIGNING_PUBLICATIONS__ (__SIGNING_PUBLICATIONS_COLUMNS__)
+    SELECT __SIGNING_PUBLICATIONS_COLUMNS__ FROM proposed_publication;
+  ASSERT @@row_count=1 AS 'BOOTSTRAP_PUBLICATION_INSERT_FAILED';
+  -- PROBE_AFTER_PUBLICATION
+  INSERT INTO __SIGNING_KEY_HISTORY__ (__SIGNING_KEY_HISTORY_COLUMNS__)
+    SELECT __SIGNING_KEY_HISTORY_COLUMNS__ FROM proposed_history;
+  ASSERT @@row_count=(SELECT history_count FROM proposed_publication) AS 'BOOTSTRAP_HISTORY_INSERT_FAILED';
+  INSERT INTO __SIGNING_HEADS__ (__SIGNING_HEADS_COLUMNS__)
+    SELECT __SIGNING_HEADS_COLUMNS__ FROM proposed_head;
+  ASSERT @@row_count=1 AS 'BOOTSTRAP_HEAD_INSERT_FAILED';
+  CREATE TEMP TABLE bootstrap_result AS SELECT observed_at AS observed_at,
+    (SELECT AS STRUCT * FROM __SIGNING_HEADS__ WHERE policy_id=@policy_id) AS head,
+    (SELECT AS STRUCT * FROM __SIGNING_PUBLICATIONS__ WHERE policy_id=@policy_id) AS publication,
+    ARRAY(SELECT AS STRUCT * FROM __SIGNING_KEY_HISTORY__ WHERE policy_id=@policy_id ORDER BY key_id) AS history,
+    (SELECT COUNT(*) FROM __SIGNING_CHECKPOINTS__ WHERE policy_id=@policy_id) AS checkpoint_count;
+  COMMIT TRANSACTION;
+EXCEPTION WHEN ERROR THEN
+  ROLLBACK TRANSACTION;
+  RAISE;
+END;
+-- PROBE_AFTER_COMMIT
+SELECT * FROM bootstrap_result;

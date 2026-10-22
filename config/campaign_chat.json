@@ -1,0 +1,7 @@
+{
+  "max_message_characters": 2000,
+  "max_audience_characters": 160,
+  "interpreter_max_output_tokens": 1024,
+  "model_timeout_ms": 120000,
+  "maximum_bytes_billed": 67108864
+}

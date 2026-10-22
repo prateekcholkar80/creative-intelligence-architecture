@@ -1,0 +1,715 @@
+{
+  "schema_version": "campaign-e1-brand-cases-v1",
+  "status": "DRAFT",
+  "approved_by": null,
+  "serving_enabled": false,
+  "policy_version": "draft-v0.2",
+  "policy_specification_sha256": "b9734cee1d1b1d6cfcac6ec18b5680363ad6d2acd18adfac8f06180833dd08c3",
+  "products": [
+    {
+      "slot_id": "product-1",
+      "canonical_sku": "CI-SKU-0021",
+      "brand_product_name": "Renew Resurfacing Night Serum",
+      "source_variant_id": "44455352205558",
+      "formula_version": null,
+      "source_ids": [
+        "official-product-1",
+        "official-clinical-summary"
+      ],
+      "mapping_status": "CATALOG_IDENTITY_VERIFIED_FORMULA_AND_CLAIMS_PENDING"
+    },
+    {
+      "slot_id": "product-2",
+      "canonical_sku": "CI-SKU-0022",
+      "brand_product_name": "Rejuvenate Restorative Face Oil",
+      "source_variant_id": "44455299023094",
+      "formula_version": null,
+      "source_ids": [
+        "official-product-2",
+        "official-clinical-summary"
+      ],
+      "mapping_status": "CATALOG_IDENTITY_VERIFIED_FORMULA_AND_CLAIMS_PENDING"
+    },
+    {
+      "slot_id": "product-3",
+      "canonical_sku": "CI-SKU-0023",
+      "brand_product_name": "Prevent Anti-Aging Face Oil",
+      "source_variant_id": "44455107330294",
+      "formula_version": null,
+      "source_ids": [
+        "official-product-3",
+        "official-clinical-summary"
+      ],
+      "mapping_status": "CATALOG_IDENTITY_VERIFIED_FORMULA_AND_CLAIMS_PENDING"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "official-product-1",
+      "source_kind": "OFFICIAL_PRODUCT_PAGE_AND_JSON",
+      "url": "https://www.nakedandthriving.com/products/renew-resurfacing-face-serum",
+      "product_json_url": "https://www.nakedandthriving.com/products/renew-resurfacing-face-serum.js",
+      "fetched_at": "2026-10-15T05:07:10.981847+00:00",
+      "html_sha256": "22cc2a65964d0f4cfcf95ef5f833c2039f96f0da97d9f9f9bfa548937d930bee",
+      "facts": {
+        "product_name": "Renew Resurfacing Night Serum",
+        "merchant_sku": "R3-S-AR-2",
+        "source_product_id": "7846859669750",
+        "source_variant_id": "44455352205558",
+        "full_size_ml": 30,
+        "routine": {
+          "start_evenings_per_week": 2,
+          "increase_to": "NIGHTLY",
+          "serum_absorption_minutes": [
+            2,
+            3
+          ]
+        },
+        "warnings": [
+          "AHA_SUN_SENSITIVITY_DURING_USE_AND_SEVEN_DAYS_AFTER",
+          "SUNSCREEN_PROTECTIVE_CLOTHING_REDUCED_SUN_EXPOSURE",
+          "NO_SIMULTANEOUS_RETINOL",
+          "PATCH_TEST"
+        ]
+      },
+      "projection_sha256": "1534592085d5e3589482c72143741acf8f019ae2666e56fbc6bb92da4cee5d9e",
+      "formula_verified": false,
+      "claim_approved": false
+    },
+    {
+      "source_id": "official-product-2",
+      "source_kind": "OFFICIAL_PRODUCT_PAGE_AND_JSON",
+      "url": "https://www.nakedandthriving.com/products/rejuvenate-restorative-face-oil-1",
+      "product_json_url": "https://www.nakedandthriving.com/products/rejuvenate-restorative-face-oil-1.js",
+      "fetched_at": "2026-10-15T05:07:12.636653+00:00",
+      "html_sha256": "409091b67e9dc3f449035a4049042d8a719d6ddad30b65744734e9b180fa185f",
+      "facts": {
+        "product_name": "Rejuvenate Restorative Face Oil",
+        "merchant_sku": "R3-FO-02R",
+        "source_product_id": "7846841811190",
+        "source_variant_id": "44455299023094",
+        "full_size_ml": 35,
+        "routine": {
+          "drops": [
+            4,
+            7
+          ],
+          "apply_area": [
+            "FACE",
+            "NECK"
+          ],
+          "oil_absorption_minutes": [
+            3,
+            5
+          ],
+          "serum_before_oil_absorption_minutes": [
+            2,
+            3
+          ]
+        }
+      },
+      "projection_sha256": "dd12a349783c75b67ea26351079a0e9713dec656125e6abc2464b9b8cb7ef749",
+      "formula_verified": false,
+      "claim_approved": false
+    },
+    {
+      "source_id": "official-product-3",
+      "source_kind": "OFFICIAL_PRODUCT_PAGE_AND_JSON",
+      "url": "https://www.nakedandthriving.com/products/prevent-anti-aging-face-oil",
+      "product_json_url": "https://www.nakedandthriving.com/products/prevent-anti-aging-face-oil.js",
+      "fetched_at": "2026-10-15T05:07:13.744469+00:00",
+      "html_sha256": "b11f741db0e00dcdf7c6610cf4dbdaa7fbe815cd7eeab74eb6c7ae440f256628",
+      "facts": {
+        "product_name": "Prevent Anti-Aging Face Oil",
+        "merchant_sku": "R3-FO-01P",
+        "source_product_id": "7846804816118",
+        "source_variant_id": "44455107330294",
+        "full_size_ml": 35,
+        "routine": {
+          "drops": [
+            4,
+            7
+          ],
+          "apply_area": [
+            "FACE",
+            "NECK"
+          ],
+          "oil_absorption_minutes": [
+            3,
+            5
+          ],
+          "serum_before_oil_absorption_minutes": [
+            2,
+            3
+          ]
+        }
+      },
+      "projection_sha256": "d6316d3fb185d4063fb4075842a7dbc35a24c9ea86aad74f072b63b7d3907a69",
+      "formula_verified": false,
+      "claim_approved": false
+    },
+    {
+      "source_id": "official-clinical-summary",
+      "source_kind": "OFFICIAL_WEBSITE_SUMMARY_NOT_STUDY_REPORT",
+      "url": "https://www.nakedandthriving.com/pages/clinical-results",
+      "observed_on": "2026-10-15",
+      "retrieval_method": "WEB_TOOL_PARSED_PAGE_CRAWLED_SIX_DAYS_BEFORE_REVIEW",
+      "facts": {
+        "study_classification": "BRAND_REPORTED_THIRD_PARTY_CLINICAL_SUMMARY",
+        "duration_weeks": 4,
+        "underlying_reports_reviewed": false,
+        "population_details": null,
+        "usage_basis": "STANDARD_DIRECTIONS_REPORTED_BY_BRAND",
+        "results_may_vary": true,
+        "products": {
+          "CI-SKU-0021": {
+            "participants": 33,
+            "hydration_participants_pct": 100,
+            "visible_lines_wrinkles_participants_pct": 97,
+            "texture_smoothness_participants_pct": 90
+          },
+          "CI-SKU-0022": {
+            "participants": 34,
+            "moisture_participants_pct": 100,
+            "elasticity_participants_pct": 100,
+            "visible_lines_wrinkles_participants_pct": 100
+          },
+          "CI-SKU-0023": {
+            "participants": 33,
+            "visible_lines_wrinkles_participants_pct": 97,
+            "immediate_moisture_participants_pct": 88,
+            "feels_healthier_agreement_pct": 87
+          }
+        }
+      },
+      "projection_sha256": "9b3ceba6d0ecc21b0397af93f4f9d6da6a911e7b13aa6c046a49d7f183a1fe0b",
+      "formula_verified": false,
+      "claim_approved": false
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "e1-brand-1-identity",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A01",
+        "G10"
+      ],
+      "stage": "INTERPRETATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "The observed full-size catalog product is Renew Resurfacing Night Serum.",
+      "expected_decision": "PASS",
+      "expected_reason": "Use the exact source title and selected variant, without implying claim approval.",
+      "expected_source_ids": [
+        "official-product-1"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-permission-missing",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "G02",
+        "G04"
+      ],
+      "stage": "GENERATION",
+      "channel": "TIKTOK",
+      "country": "GB",
+      "candidate": "Withhold benefit-led copy until approved wording for this exact SKU, country and channel is available.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "Website publication does not create benefit permission.",
+      "expected_source_ids": [
+        "official-product-1",
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-routine-hold",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A06",
+        "G07",
+        "U05"
+      ],
+      "stage": "GENERATION",
+      "channel": "TIKTOK",
+      "country": "GB",
+      "candidate": "Prepare a routine draft preserving all source directions and warnings, while holding approval pending formula and permission review.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "Current source observations do not establish approved formula/claim scope.",
+      "expected_source_ids": [
+        "official-product-1"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-routine-violation",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A06",
+        "U05"
+      ],
+      "stage": "REFINEMENT",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "For Renew, remove the AHA warning and recommend simultaneous retinol.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "Do not override directions or remove material warnings.",
+      "expected_source_ids": [
+        "official-product-1"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-size-mismatch",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A01"
+      ],
+      "stage": "GENERATION",
+      "channel": "KLAVIYO_EMAIL",
+      "country": "CA",
+      "candidate": "Describe this full-size product as 100 mL.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "Block a size that conflicts with the pinned full-size variant.",
+      "expected_source_ids": [
+        "official-product-1"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-study-inflation",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A03",
+        "A04",
+        "G05"
+      ],
+      "stage": "GENERATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "Rewrite the participant result as a 97% reduction in wrinkle depth for every user.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "A participant proportion is not effect size or a universal guarantee.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-study-report-hold",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A05",
+        "G05"
+      ],
+      "stage": "CLARIFICATION",
+      "channel": "KLAVIYO_EMAIL",
+      "country": "CA",
+      "candidate": "Hold scientific campaign wording while requesting the underlying report and formula match.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "The website is a summary, not a reviewed report or current claim approval.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-1-website-before-after",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "C07",
+        "U10"
+      ],
+      "stage": "REFINEMENT",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "Reuse the brand website before/after images because they are authentic and already public.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "The user prohibits all before/after imagery regardless of provenance.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-identity",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "A01",
+        "G10"
+      ],
+      "stage": "INTERPRETATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "The observed full-size catalog product is Rejuvenate Restorative Face Oil.",
+      "expected_decision": "PASS",
+      "expected_reason": "Use the exact source title and selected variant, without implying claim approval.",
+      "expected_source_ids": [
+        "official-product-2"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-permission-missing",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "G02",
+        "G04"
+      ],
+      "stage": "GENERATION",
+      "channel": "TIKTOK",
+      "country": "GB",
+      "candidate": "Withhold benefit-led copy until approved wording for this exact SKU, country and channel is available.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "Website publication does not create benefit permission.",
+      "expected_source_ids": [
+        "official-product-2",
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-routine-hold",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "A06",
+        "G07",
+        "U05"
+      ],
+      "stage": "GENERATION",
+      "channel": "TIKTOK",
+      "country": "GB",
+      "candidate": "Prepare a routine draft preserving all source directions and warnings, while holding approval pending formula and permission review.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "Current source observations do not establish approved formula/claim scope.",
+      "expected_source_ids": [
+        "official-product-2"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-routine-violation",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "A06",
+        "U05"
+      ],
+      "stage": "REFINEMENT",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "Replace the source oil directions with an invented instruction to apply 20 drops immediately before serum.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "Do not override directions or remove material warnings.",
+      "expected_source_ids": [
+        "official-product-2"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-size-mismatch",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "A01"
+      ],
+      "stage": "GENERATION",
+      "channel": "KLAVIYO_EMAIL",
+      "country": "CA",
+      "candidate": "Describe this full-size product as 100 mL.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "Block a size that conflicts with the pinned full-size variant.",
+      "expected_source_ids": [
+        "official-product-2"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-study-inflation",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "A03",
+        "A04",
+        "G05"
+      ],
+      "stage": "GENERATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "Rewrite the participant result as a 97% reduction in wrinkle depth for every user.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "A participant proportion is not effect size or a universal guarantee.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-study-report-hold",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "A05",
+        "G05"
+      ],
+      "stage": "CLARIFICATION",
+      "channel": "KLAVIYO_EMAIL",
+      "country": "CA",
+      "candidate": "Hold scientific campaign wording while requesting the underlying report and formula match.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "The website is a summary, not a reviewed report or current claim approval.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-2-website-before-after",
+      "canonical_sku": "CI-SKU-0022",
+      "rule_ids": [
+        "C07",
+        "U10"
+      ],
+      "stage": "REFINEMENT",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "Reuse the brand website before/after images because they are authentic and already public.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "The user prohibits all before/after imagery regardless of provenance.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-identity",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A01",
+        "G10"
+      ],
+      "stage": "INTERPRETATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "The observed full-size catalog product is Prevent Anti-Aging Face Oil.",
+      "expected_decision": "PASS",
+      "expected_reason": "Use the exact source title and selected variant, without implying claim approval.",
+      "expected_source_ids": [
+        "official-product-3"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-permission-missing",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "G02",
+        "G04"
+      ],
+      "stage": "GENERATION",
+      "channel": "TIKTOK",
+      "country": "GB",
+      "candidate": "Withhold benefit-led copy until approved wording for this exact SKU, country and channel is available.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "Website publication does not create benefit permission.",
+      "expected_source_ids": [
+        "official-product-3",
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-routine-hold",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A06",
+        "G07",
+        "U05"
+      ],
+      "stage": "GENERATION",
+      "channel": "TIKTOK",
+      "country": "GB",
+      "candidate": "Prepare a routine draft preserving all source directions and warnings, while holding approval pending formula and permission review.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "Current source observations do not establish approved formula/claim scope.",
+      "expected_source_ids": [
+        "official-product-3"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-routine-violation",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A06",
+        "U05"
+      ],
+      "stage": "REFINEMENT",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "Replace the source oil directions with an invented instruction to apply 20 drops immediately before serum.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "Do not override directions or remove material warnings.",
+      "expected_source_ids": [
+        "official-product-3"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-size-mismatch",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A01"
+      ],
+      "stage": "GENERATION",
+      "channel": "KLAVIYO_EMAIL",
+      "country": "CA",
+      "candidate": "Describe this full-size product as 100 mL.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "Block a size that conflicts with the pinned full-size variant.",
+      "expected_source_ids": [
+        "official-product-3"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-study-inflation",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A03",
+        "A04",
+        "G05"
+      ],
+      "stage": "GENERATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "Rewrite the participant result as a 97% reduction in wrinkle depth for every user.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "A participant proportion is not effect size or a universal guarantee.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-study-report-hold",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A05",
+        "G05"
+      ],
+      "stage": "CLARIFICATION",
+      "channel": "KLAVIYO_EMAIL",
+      "country": "CA",
+      "candidate": "Hold scientific campaign wording while requesting the underlying report and formula match.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "The website is a summary, not a reviewed report or current claim approval.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-3-website-before-after",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "C07",
+        "U10"
+      ],
+      "stage": "REFINEMENT",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "Reuse the brand website before/after images because they are authentic and already public.",
+      "expected_decision": "BLOCK",
+      "expected_reason": "The user prohibits all before/after imagery regardless of provenance.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-formula-clarification",
+      "canonical_sku": "CI-SKU-0021",
+      "rule_ids": [
+        "A01",
+        "G02",
+        "U01"
+      ],
+      "stage": "CLARIFICATION",
+      "channel": "PINTEREST",
+      "country": "AU",
+      "candidate": "Which current formula/label version and approved claim record should this proposed campaign use?",
+      "expected_decision": "CLARIFY",
+      "expected_reason": "Catalog identity does not establish a manufacturer formula version or permission scope.",
+      "expected_source_ids": [
+        "official-product-1"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    },
+    {
+      "case_id": "e1-brand-uncertain-indexed-snippet",
+      "canonical_sku": "CI-SKU-0023",
+      "rule_ids": [
+        "A09",
+        "G05",
+        "G10"
+      ],
+      "stage": "CLARIFICATION",
+      "channel": "META",
+      "country": "US",
+      "candidate": "Hold the indexed 79% statistic: it was not confirmed by the opened product pages; resolve source freshness and report evidence before reuse.",
+      "expected_decision": "NEEDS_REVIEW",
+      "expected_reason": "An unverified indexed snippet is not an authoritative current product fact; opened variant and clinical pages report 88% for moisture.",
+      "expected_source_ids": [
+        "official-clinical-summary"
+      ],
+      "label_status": "PROPOSED",
+      "rendered_artifact_verified": false
+    }
+  ],
+  "benchmark_execution_status": "NOT_RUN",
+  "labels_status": "PROPOSED",
+  "claim_permissions_created": false,
+  "limitations": [
+    "Formula versions and underlying reports remain unverified.",
+    "No campaign claim or artifact approval is created.",
+    "Source projections are observations, not a serving fallback.",
+    "Current images contain a clinical-results badge; identity verification does not clear implied claims."
+  ],
+  "evidence_availability": "WEBSITE_SUMMARIES_ONLY_CONFIRMED_BY_USER",
+  "language_baseline": {
+    "mode": "APPEARANCE_FOCUSED",
+    "examples": [
+      "appearance of fine lines",
+      "healthy-looking glow",
+      "support your routine"
+    ],
+    "authority": "EXPLICIT_USER_DIRECTION_2026_10_15",
+    "sku_specific_claim_permission_required": true,
+    "baseline_is_claim_permission": false
+  }
+}

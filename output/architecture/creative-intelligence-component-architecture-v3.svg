@@ -1,0 +1,273 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4000" height="3000" viewBox="0 0 4000 3000">
+<rect width="100%" height="100%" fill="#F6F9FE"/>
+<text x="80" y="102" font-family="Open Sans,Arial,sans-serif" font-size="62" fill="#102F5D">CREATIVE INTELLIGENCE ON GOOGLE CLOUD</text>
+<text x="80" y="161" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#496380">Component architecture  |  Multimodal RAG + commerce analytics + grounded campaign generation</text>
+<rect x="80" y="205" width="3840" height="88" rx="14" fill="#102F5D" stroke="none" stroke-width="2"/>
+<text x="110" y="253" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#FFFFFF">MARKETERS / REVIEWERS</text>
+<text x="650" y="255" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#FFFFFF">Chat + campaign studio   →   Product / market / channel / objective   →   Protected Cloud Run API</text>
+<rect x="80" y="330" width="620" height="1035" rx="14" fill="#E9F7FF" stroke="#CFDCEB" stroke-width="2"/>
+<text x="100" y="381" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#087FAB">1  Intake + orchestration</text>
+<rect x="724" y="330" width="620" height="1035" rx="14" fill="#EAF8F0" stroke="#CFDCEB" stroke-width="2"/>
+<text x="744" y="381" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#187F56">2  Data + knowledge</text>
+<rect x="1368" y="330" width="620" height="1035" rx="14" fill="#EFF1FF" stroke="#CFDCEB" stroke-width="2"/>
+<text x="1388" y="381" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#3856BE">3  Grounding + planning</text>
+<rect x="2012" y="330" width="620" height="1035" rx="14" fill="#FFF8E4" stroke="#CFDCEB" stroke-width="2"/>
+<text x="2032" y="381" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#A16A0C">4  Models + rendering</text>
+<rect x="2656" y="330" width="620" height="1035" rx="14" fill="#F5EFFF" stroke="#CFDCEB" stroke-width="2"/>
+<text x="2676" y="381" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#7646AF">5  Quality + approval</text>
+<rect x="3300" y="330" width="620" height="1035" rx="14" fill="#FFF0F3" stroke="#CFDCEB" stroke-width="2"/>
+<text x="3320" y="381" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#AB4762">6  Delivery + outcomes</text>
+<rect x="96" y="415" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="113" y="433" width="61" height="52" rx="9" fill="#087FAB" stroke="none" stroke-width="2"/>
+<text x="123" y="463" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">IN</text>
+<text x="188" y="459" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#087FAB">Protected ingestion</text>
+<text x="118" y="516" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Run intake + GCS</text>
+<text x="118" y="563" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Bulk uploads + scheduled connectors</text>
+<text x="118" y="599" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Validate MIME / size / source identity</text>
+<text x="118" y="635" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• SKU mapping, dedupe + immutable bytes</text>
+<text x="118" y="671" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Source hash, generation + ownership</text>
+<rect x="96" y="725" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="113" y="743" width="61" height="52" rx="9" fill="#087FAB" stroke="none" stroke-width="2"/>
+<text x="123" y="773" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">WF</text>
+<text x="188" y="769" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#087FAB">Preparation scheduler</text>
+<text x="118" y="826" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Scheduler / Workflows</text>
+<text x="118" y="873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Source event starts a durable job</text>
+<text x="118" y="909" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Workflows invokes Cloud Run Jobs</text>
+<text x="118" y="945" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Per-stage status + stable operation IDs</text>
+<text x="118" y="981" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Explicit recovery of uncertain calls</text>
+<rect x="96" y="1035" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="113" y="1053" width="61" height="52" rx="9" fill="#087FAB" stroke="none" stroke-width="2"/>
+<text x="123" y="1083" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">ETL</text>
+<text x="188" y="1079" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#087FAB">Processing workers</text>
+<text x="118" y="1136" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Run Jobs + Vertex AI</text>
+<text x="118" y="1183" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Extract documents + segment text</text>
+<text x="118" y="1219" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Classify images + prepare pack shots</text>
+<text x="118" y="1255" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Create text + image embeddings</text>
+<text x="118" y="1291" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Version parser, model + source pins</text>
+<rect x="740" y="415" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="757" y="433" width="61" height="52" rx="9" fill="#187F56" stroke="none" stroke-width="2"/>
+<text x="767" y="463" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">GCS</text>
+<text x="832" y="459" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#187F56">Source + artifact bytes</text>
+<text x="762" y="516" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Storage (GCS)</text>
+<text x="762" y="563" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Originals, derived assets + banners</text>
+<text x="762" y="599" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Immutable generation-pinned reads</text>
+<text x="762" y="635" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Lifecycle / retention configuration</text>
+<text x="762" y="671" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Content hashes + lineage references</text>
+<rect x="740" y="725" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="757" y="743" width="61" height="52" rx="9" fill="#187F56" stroke="none" stroke-width="2"/>
+<text x="767" y="773" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">BQ</text>
+<text x="832" y="769" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#187F56">Product knowledge + vectors</text>
+<text x="762" y="826" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">BigQuery corpus / evidence tables</text>
+<text x="762" y="873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Products, chunks + asset metadata</text>
+<text x="762" y="909" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Text / image vectors + profile versions</text>
+<text x="762" y="945" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Claims, brand rules + scoped reviews</text>
+<text x="762" y="981" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Readiness, expiry + revocation records</text>
+<rect x="740" y="1035" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="757" y="1053" width="61" height="52" rx="9" fill="#187F56" stroke="none" stroke-width="2"/>
+<text x="767" y="1083" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">SQL</text>
+<text x="832" y="1079" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#187F56">Commerce analytics marts</text>
+<text x="762" y="1136" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">BigQuery curated facts + views</text>
+<text x="762" y="1183" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Sales, returns, spend + inventory facts</text>
+<text x="762" y="1219" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Product / store / channel dimensions</text>
+<text x="762" y="1255" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Net revenue, margin, CVR + ROAS</text>
+<text x="762" y="1291" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Currency, time zone + attribution rules</text>
+<rect x="1384" y="415" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="1401" y="433" width="61" height="52" rx="9" fill="#3856BE" stroke="none" stroke-width="2"/>
+<text x="1411" y="463" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">API</text>
+<text x="1476" y="459" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#3856BE">Campaign admission</text>
+<text x="1406" y="516" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Run campaign API / worker</text>
+<text x="1406" y="563" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• IAP identity + workspace / SKU scope</text>
+<text x="1406" y="599" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Persist brief + selected campaign scope</text>
+<text x="1406" y="635" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Check readiness and execution limits</text>
+<text x="1406" y="671" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Resume durable progress after refresh</text>
+<rect x="1384" y="725" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="1401" y="743" width="61" height="52" rx="9" fill="#3856BE" stroke="none" stroke-width="2"/>
+<text x="1411" y="773" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">RAG</text>
+<text x="1476" y="769" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#3856BE">Retrieval + analytics tools</text>
+<text x="1406" y="826" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">BigQuery search + governed SQL</text>
+<text x="1406" y="873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Eligible lexical + vector candidates</text>
+<text x="1406" y="909" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Semantic reranker selects evidence</text>
+<text x="1406" y="945" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Typed queries for store / SKU metrics</text>
+<text x="1406" y="981" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Read real images; retain query IDs</text>
+<rect x="1384" y="1035" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="1401" y="1053" width="61" height="52" rx="9" fill="#3856BE" stroke="none" stroke-width="2"/>
+<text x="1411" y="1083" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">LLM</text>
+<text x="1476" y="1079" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#3856BE">Evidence binder + planner</text>
+<text x="1406" y="1136" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Application services + Gemini</text>
+<text x="1406" y="1183" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Bind facts, claims, assets + metrics</text>
+<text x="1406" y="1219" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Hash exact evidence + prompt inputs</text>
+<text x="1406" y="1255" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Produce concept, copy + layout JSON</text>
+<text x="1406" y="1291" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Pin all model / prompt / policy versions</text>
+<rect x="2028" y="415" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="2045" y="433" width="61" height="52" rx="9" fill="#A16A0C" stroke="none" stroke-width="2"/>
+<text x="2055" y="463" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">VEC</text>
+<text x="2120" y="459" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#A16A0C">Embedding services</text>
+<text x="2050" y="516" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Vertex AI + Google Gen AI SDK</text>
+<text x="2050" y="563" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Text and multimodal embedding profiles</text>
+<text x="2050" y="599" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Versioned dimensions + task types</text>
+<text x="2050" y="635" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Batch preparation + query embeddings</text>
+<text x="2050" y="671" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Provider outcomes + nullable usage</text>
+<rect x="2028" y="725" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="2045" y="743" width="61" height="52" rx="9" fill="#A16A0C" stroke="none" stroke-width="2"/>
+<text x="2055" y="773" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">AI</text>
+<text x="2120" y="769" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#A16A0C">Generation + reranking</text>
+<text x="2050" y="826" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Vertex AI Gemini models</text>
+<text x="2050" y="873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Intent / planning and multimodal reasoning</text>
+<text x="2050" y="909" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Bounded semantic reranking adapter</text>
+<text x="2050" y="945" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Image generation with product reference</text>
+<text x="2050" y="981" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Approved endpoint / region profiles</text>
+<rect x="2028" y="1035" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="2045" y="1053" width="61" height="52" rx="9" fill="#A16A0C" stroke="none" stroke-width="2"/>
+<text x="2055" y="1083" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">IMG</text>
+<text x="2120" y="1079" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#A16A0C">Source-preserving compositor</text>
+<text x="2050" y="1136" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Run render worker + Pillow</text>
+<text x="2050" y="1183" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Preserve actual product crop + label</text>
+<text x="2050" y="1219" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Versioned typography + output layouts</text>
+<text x="2050" y="1255" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Compose scene, copy and real product</text>
+<text x="2050" y="1291" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Save image bytes + exact render manifest</text>
+<rect x="2672" y="415" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="2689" y="433" width="61" height="52" rx="9" fill="#7646AF" stroke="none" stroke-width="2"/>
+<text x="2699" y="463" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">POL</text>
+<text x="2764" y="459" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#7646AF">Input + evidence checks</text>
+<text x="2694" y="516" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Application policy / source validators</text>
+<text x="2694" y="563" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Current access + scope + source hashes</text>
+<text x="2694" y="599" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Applicable claims and asset permissions</text>
+<text x="2694" y="635" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Untrusted document / prompt handling</text>
+<text x="2694" y="671" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• No approval inferred from similarity</text>
+<rect x="2672" y="725" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="2689" y="743" width="61" height="52" rx="9" fill="#7646AF" stroke="none" stroke-width="2"/>
+<text x="2699" y="773" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">EVAL</text>
+<text x="2764" y="769" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#7646AF">Artifact quality pipeline</text>
+<text x="2694" y="826" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Mechanical + multimodal evaluators</text>
+<text x="2694" y="873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Product fidelity, OCR + layout checks</text>
+<text x="2694" y="909" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Claim support, brand + safety checks</text>
+<text x="2694" y="945" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Format constraints + scored results</text>
+<text x="2694" y="981" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Unavailable checks withhold clearance</text>
+<rect x="2672" y="1035" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="2689" y="1053" width="61" height="52" rx="9" fill="#7646AF" stroke="none" stroke-width="2"/>
+<text x="2699" y="1083" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">GATE</text>
+<text x="2764" y="1079" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#7646AF">Correction + release gate</text>
+<text x="2694" y="1136" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Bounded workflow + human review</text>
+<text x="2694" y="1183" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Limited correction with recorded reasons</text>
+<text x="2694" y="1219" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Reviewer decision tied to exact artifact</text>
+<text x="2694" y="1255" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Fresh access / approval / expiry checks</text>
+<text x="2694" y="1291" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Generation and release stay separate</text>
+<rect x="3316" y="415" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="3333" y="433" width="61" height="52" rx="9" fill="#AB4762" stroke="none" stroke-width="2"/>
+<text x="3343" y="463" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">UI</text>
+<text x="3408" y="459" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#AB4762">Campaign experience</text>
+<text x="3338" y="516" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">Cloud Run chat / campaign studio</text>
+<text x="3338" y="563" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Private preview + approved downloads</text>
+<text x="3338" y="599" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Concept, copy and format variants</text>
+<text x="3338" y="635" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Evidence and analytics explanations</text>
+<text x="3338" y="671" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Saved progress, clarification + feedback</text>
+<rect x="3316" y="725" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="3333" y="743" width="61" height="52" rx="9" fill="#AB4762" stroke="none" stroke-width="2"/>
+<text x="3343" y="773" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">AUD</text>
+<text x="3408" y="769" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#AB4762">Durable execution records</text>
+<text x="3338" y="826" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">BigQuery ledger + GCS artifacts</text>
+<text x="3338" y="873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Inputs, attempts + provider outcomes</text>
+<text x="3338" y="909" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Response hashes, model IDs + usage</text>
+<text x="3338" y="945" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Artifact generations + measured scores</text>
+<text x="3338" y="981" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Original-job recovery without redispatch</text>
+<rect x="3316" y="1035" width="588" height="280" rx="14" fill="#FFFFFF" stroke="#D3DFED" stroke-width="2"/>
+<rect x="3333" y="1053" width="61" height="52" rx="9" fill="#AB4762" stroke="none" stroke-width="2"/>
+<text x="3343" y="1083" font-family="Open Sans,Arial,sans-serif" font-size="24" fill="#FFFFFF">BI</text>
+<text x="3408" y="1079" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#AB4762">Outcome intelligence</text>
+<text x="3338" y="1136" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#18324F">BigQuery analytics + feedback pipeline</text>
+<text x="3338" y="1183" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Join campaign / creative / SKU IDs</text>
+<text x="3338" y="1219" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Store, audience and channel outcomes</text>
+<text x="3338" y="1255" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Experiments + attribution limitations</text>
+<text x="3338" y="1291" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Controlled evaluation of future changes</text>
+<line x1="702" y1="690" x2="721" y2="690" stroke="#57779E" stroke-width="4"/>
+<polygon points="721,690 706.9586790097541,697.6708086176673 706.9586790097541,682.3291913823327" fill="#57779E"/>
+<line x1="1346" y1="690" x2="1365" y2="690" stroke="#57779E" stroke-width="4"/>
+<polygon points="1365,690 1350.958679009754,697.6708086176673 1350.958679009754,682.3291913823327" fill="#57779E"/>
+<line x1="1990" y1="690" x2="2009" y2="690" stroke="#57779E" stroke-width="4"/>
+<polygon points="2009,690 1994.958679009754,697.6708086176673 1994.958679009754,682.3291913823327" fill="#57779E"/>
+<line x1="2634" y1="690" x2="2653" y2="690" stroke="#57779E" stroke-width="4"/>
+<polygon points="2653,690 2638.958679009754,697.6708086176673 2638.958679009754,682.3291913823327" fill="#57779E"/>
+<line x1="3278" y1="690" x2="3297" y2="690" stroke="#57779E" stroke-width="4"/>
+<polygon points="3297,690 3282.958679009754,697.6708086176673 3282.958679009754,682.3291913823327" fill="#57779E"/>
+<rect x="80" y="1410" width="3840" height="112" rx="14" fill="#E8EDF9" stroke="#BCCBE7" stroke-width="2"/>
+<text x="108" y="1455" font-family="Open Sans,Arial,sans-serif" font-size="29" fill="#35487E">EXECUTION + MODEL ADAPTER CONTRACT</text>
+<text x="108" y="1498" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#35487E">Typed inputs / outputs   •   Exact prompt + source binding   •   One provider attempt per durable slot   •   Budgeted timeouts   •   Recovery before retry</text>
+<text x="80" y="1606" font-family="Open Sans,Arial,sans-serif" font-size="36" fill="#102F5D">PLATFORM SERVICES / LLMOPS</text>
+<rect x="80" y="1640" width="620" height="510" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="100" y="1690" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#1459A3">7  Development + registry</text>
+<text x="100" y="1747" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Python + Google SDKs</text>
+<text x="100" y="1795" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Versioned schemas + configurations</text>
+<text x="100" y="1834" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Prompt / model / parser definitions</text>
+<text x="100" y="1873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Git-reviewed changes + test fixtures</text>
+<text x="100" y="1937" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">BigQuery registry / review records</text>
+<text x="100" y="1989" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Exact version and history binding</text>
+<text x="100" y="2028" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• No framework checkpoint as approval</text>
+<rect x="724" y="1640" width="620" height="510" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="744" y="1690" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#1459A3">8  CI/CD + infrastructure</text>
+<text x="744" y="1747" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Cloud Build + Artifact Registry</text>
+<text x="744" y="1795" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Allowlisted source + container hashes</text>
+<text x="744" y="1834" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Focused tests + image validation</text>
+<text x="744" y="1873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Immutable Cloud Run deployments</text>
+<text x="744" y="1937" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Infrastructure as code</text>
+<text x="744" y="1989" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Scoped service configuration + IAM</text>
+<text x="744" y="2028" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Staged rollout + rollback contracts</text>
+<rect x="1368" y="1640" width="620" height="510" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="1388" y="1690" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#1459A3">9  Evaluation + experiments</text>
+<text x="1388" y="1747" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Versioned benchmark runner</text>
+<text x="1388" y="1795" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Retrieval relevance + source support</text>
+<text x="1388" y="1834" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Campaign quality + adversarial cases</text>
+<text x="1388" y="1873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Unit / native / live evidence separated</text>
+<text x="1388" y="1937" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Human review + experiments</text>
+<text x="1388" y="1989" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Artifact-level judgment + feedback</text>
+<text x="1388" y="2028" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Measured campaign outcome comparisons</text>
+<rect x="2012" y="1640" width="620" height="510" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="2032" y="1690" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#1459A3">10  Observability</text>
+<text x="2032" y="1747" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Cloud Logging + Monitoring</text>
+<text x="2032" y="1795" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Correlated run / stage / native-job IDs</text>
+<text x="2032" y="1834" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Latency, failures + worker progress</text>
+<text x="2032" y="1873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Provider identity, tokens + usage</text>
+<text x="2032" y="1937" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Operational dashboards</text>
+<text x="2032" y="1989" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Readiness / source freshness alerts</text>
+<text x="2032" y="2028" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Safe diagnostics without raw secrets</text>
+<rect x="2656" y="1640" width="620" height="510" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="2676" y="1690" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#1459A3">11  Security + privacy</text>
+<text x="2676" y="1747" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">IAP + IAM + service accounts</text>
+<text x="2676" y="1795" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Least privilege per worker and table</text>
+<text x="2676" y="1834" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Workspace / owner / market controls</text>
+<text x="2676" y="1873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Secret Manager + audited configuration</text>
+<text x="2676" y="1937" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Data governance</text>
+<text x="2676" y="1989" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Retention + residency + revocations</text>
+<text x="2676" y="2028" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Approved model endpoints / regions</text>
+<rect x="3300" y="1640" width="620" height="510" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="3320" y="1690" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#1459A3">12  Cost + reliability</text>
+<text x="3320" y="1747" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Budgets + admission limits</text>
+<text x="3320" y="1795" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Provider, query and compute usage</text>
+<text x="3320" y="1834" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Bounded context / images / concurrency</text>
+<text x="3320" y="1873" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Estimates separate from billed costs</text>
+<text x="3320" y="1937" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#18324F">Recovery + resource controls</text>
+<text x="3320" y="1989" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• Idempotent steps + unknown holds</text>
+<text x="3320" y="2028" font-family="Open Sans,Arial,sans-serif" font-size="25" fill="#405A74">• No repeated call after lost response</text>
+<rect x="80" y="2250" width="1220" height="350" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="105" y="2303" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#087FAB">DATA SOURCES</text>
+<text x="105" y="2363" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Product catalog / PIM / CMS + brand documents</text>
+<text x="105" y="2410" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Original pack shots + historical campaign creatives</text>
+<text x="105" y="2457" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Orders / POS / returns + product costs + inventory</text>
+<text x="105" y="2504" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Store / ecommerce / ad platforms + experiment data</text>
+<rect x="1390" y="2250" width="1220" height="350" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="1415" y="2303" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#A16A0C">ANALYTICS GROUNDING</text>
+<text x="1415" y="2363" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Typed SQL over governed BigQuery views</text>
+<text x="1415" y="2410" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Product revenue, margin and sales trends</text>
+<text x="1415" y="2457" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Store, market, channel and cohort comparisons</text>
+<text x="1415" y="2504" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Metric definition + window + freshness + query lineage</text>
+<rect x="2700" y="2250" width="1220" height="350" rx="14" fill="#FFFFFF" stroke="#C7D7EA" stroke-width="2"/>
+<text x="2725" y="2303" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#7646AF">FEEDBACK AND BUSINESS VALUE</text>
+<text x="2725" y="2363" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Marketer review + real campaign outcome capture</text>
+<text x="2725" y="2410" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Product / store / campaign identity reconciliation</text>
+<text x="2725" y="2457" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Recommendations informed by stock and economics</text>
+<text x="2725" y="2504" font-family="Open Sans,Arial,sans-serif" font-size="28" fill="#405A74">• Evaluated changes; no automatic efficacy approval</text>
+<rect x="80" y="2660" width="3840" height="152" rx="14" fill="#102F5D" stroke="none" stroke-width="2"/>
+<text x="110" y="2711" font-family="Open Sans,Arial,sans-serif" font-size="31" fill="#FFFFFF">KEY PLATFORM CAPABILITIES</text>
+<text x="110" y="2765" font-family="Open Sans,Arial,sans-serif" font-size="30" fill="#FFFFFF">Product fidelity   |   Evidence-grounded content   |   Commerce intelligence   |   Durable execution   |   Governed delivery   |   Measured quality</text>
+<text x="80" y="2887" font-family="Open Sans,Arial,sans-serif" font-size="27" fill="#496380">BigQuery owns data, vectors and durable business records. GCS owns bytes. Orchestration coordinates work and does not grant approval.</text>
+<text x="80" y="2936" font-family="Open Sans,Arial,sans-serif" font-size="26" fill="#496380">Future-state component design  •  Solid arrows show primary flow; platform services apply across every layer.</text>
+</svg>

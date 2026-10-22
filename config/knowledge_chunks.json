@@ -1,0 +1,7 @@
+{
+  "pipeline_id": "creative-intelligence-poc-v1",
+  "version": "knowledge-v1",
+  "generated_at": "2026-10-07T00:00:00+00:00",
+  "max_chars": 2400,
+  "visual_reference": "data/research/naked_and_thriving_visual_reference.json"
+}

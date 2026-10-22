@@ -1,0 +1,7 @@
+{
+  "version": "private-text-embedding-operation-v1",
+  "run_id": "rejuvenate-text-index-v1",
+  "binding_id": "eval_corpus_binding_v1_079d45a4732dc40748ec7950a1db1366443e90020e66f5e229b96e56538570ee",
+  "corpus_sha256": "8eeba277aa979897fbae4915da693e17caae2373ecaec9bbd71340bdc9c7d883",
+  "selection_sha256": "44be3d40738c7de6e0e8e471ac71a1c3d0f5c8be071e1fd25d22ba9f86bb254f"
+}

@@ -1,0 +1,7 @@
+{
+  "model_id": "gemini-3.5-flash",
+  "location": "asia-south1",
+  "thinking_level": "LOW",
+  "seed": 42,
+  "max_output_tokens": 4096
+}
